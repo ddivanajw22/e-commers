@@ -43,7 +43,7 @@ return new class extends Migration
             $table->integer('last_activity')->index();
         });
 
-                Schema::create('products', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id('id_product');
             $table->foreignId('id_seller')->constrained('users');
             $table->foreignId('id_category')->constrained('categories');
