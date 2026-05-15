@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+/* NAVBAR */
+
+.navbar{
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.logo h2{
+    color: white;
+}
+
+.menu{
+    display: flex;
+    list-style: none;
+}
+
+.menu li{
+    margin-left: 20px;
+}
+
+.menu li a{
+    color: white;
+    text-decoration: none;
+}
+
+/* CONTAINER */
+
+.container{
+    padding: 30px;
+}
+
+/* PRODUCT */
+
+.product-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card{
+    background: white;
+    width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 15px;
+}
+
+.card img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card h3{
+    margin-top: 10px;
+}
+
+.card p{
+    margin-top: 5px;
+    color: green;
+}
+
+.card button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.card a{
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+/* LOGIN */
+
+.login-box{
+    width: 350px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.login-box input{
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.login-box button{
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: black;
+    color: white;
+    border: none;
+}
+
+/* PROFILE */
+
+.profile-box{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* FOOTER */
+
+.footer{
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
