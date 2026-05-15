@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>E-Commerce Fashion</title>
+    <title>Ravenelle - Fashion Store</title>
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
+    </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar">
-
         <div class="logo">
-            <h2>Fashion Store</h2>
+            <h2>Ravenelle</h2>
         </div>
 
         <ul class="menu">
@@ -25,22 +23,16 @@
             <li><a href="/profile">Profile</a></li>
             <li><a href="/login">Login</a></li>
         </ul>
-
     </nav>
 
-    <!-- CONTENT -->
     <div class="container">
-
         @yield('content')
-
     </div>
 
-    <!-- FOOTER -->
     <footer class="footer">
-        <p>© 2026 Fashion Store</p>
+        <p>&copy; 2026 Ravenelle</p>
     </footer>
 
     <script src="{{ asset('js/script.js') }}"></script>
-
 </body>
 </html>

@@ -12,8 +12,9 @@
             </h1>
             
             <div class="flex border border-black rounded-full w-fit mb-8 overflow-hidden mx-auto">
-                <button class="bg-black text-white px-5 py-1 text-sm font-semibold">Login</button>
-                <button class="bg-white text-black px-5 py-1 text-sm font-semibold">Register</button>
+                <button class="bg-white text-black px-5 py-1 text-sm font-semibold">Login</button>
+                    <link href="login.php" class="Login" rel="stylesheet">
+                <button class="bg-black text-white px-5 py-1 text-sm font-semibold">Register</button>
             </div>
 
             <form action="" method="POST" class="space-y-4 max-w-[300px] mx-auto w-full">
@@ -27,12 +28,28 @@
 
                 <div class="relative">
                     <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
-                        <i class="fa-solid fa-lock"></i>
+                        <i class="fa-regular fa-envelope"></i>
                     </span>
-                    <input type="password" name="password" placeholder="Password" 
+                    <input type="email" name="Email" placeholder="Email" 
                         class="w-full pl-10 pr-10 py-2 border border-black rounded-full focus:outline-none">
                 </div>
 
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
+                        <i class="fa-solid fa-lock"></i>
+                    </span>
+                    <input type="password" name="Password" placeholder="Password" 
+                        class="w-full pl-10 pr-10 py-2 border border-black rounded-full focus:outline-none">
+                </div>
+
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
+                        <i class="fa-solid fa-lock"></i>
+                    </span>
+                    <input type="password" name="Repeat Password" placeholder="Repeat Password" 
+                        class="w-full pl-10 pr-10 py-2 border border-black rounded-full focus:outline-none">
+                </div>
+                
                 <div class="flex justify-between items-center text-[10px] text-gray-400 px-2">
                     <label class="flex items-center space-x-1">
                         <input type="checkbox" name="remember" class="rounded">
@@ -42,7 +59,7 @@
                 </div>
 
                 <button type="submit" class="w-full bg-black text-white py-2 rounded-full font-bold hover:bg-gray-800 transition">
-                    Login
+                    Register
                 </button>
             </form>
 
