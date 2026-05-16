@@ -33,3 +33,7 @@ Route::get('/bottom', function () {
 Route::get('/dresses', function () {
     return view('pages.dresses');
 });
+
+Route::get('/outerwear', function () {
+    return view('pages.outerwear');
+});
