@@ -1,100 +1,97 @@
-@extends('layouts.app')
-
-@section('content')
-    @php
-$tops = [
-       [
-            'name' => 'Asymmetrical Collar Crop Sweatshirt',
-            'price' => '$40.00', 
-            'image' => 'https://i.pinimg.com/1200x/0d/f3/07/0df307f04ca36d28eb7dd4eb4ebfcadb.jpg',
-            'rating' => '5.0 (1.3k Reviews)'
+@extends('layouts.app') @section('content') @php
+    $bottom = [
+        [
+            'name' => 'High-Waisted Beige Pleated Wide-Leg Pants',
+            'price' => '$35.00', 
+            'image' => 'https://i.pinimg.com/1200x/17/3a/94/173a94e217e71827e9dd5b0a79d46de7.jpg',
+            'rating' => '4.8 (340 Reviews)'
         ],
         [
-            'name' => 'Dark Brown Faux Leather Wrap Shirt', 
-            'price' => '$59.00', 
-            'image' => 'https://i.pinimg.com/1200x/94/3d/68/943d6825adef9ef9015628287212ec06.jpg',
-            'rating' => '4.8 (850 Reviews)'
-        ],
-        [
-            'name' => 'Navy Blue Ruched Button-Up Shirt',
-            'price' => '$48.50', 
-            'image' => 'https://i.pinimg.com/736x/aa/c9/c4/aac9c481cbb53fe78636bea482b7ec23.jpg',
-            'rating' => '4.7 (1.1k Reviews)'
-        ],
-       [
-            'name' => 'Sage Green Sleeveless Wrap Top',
-            'price' => '$48.00', 
-            'image' => 'https://i.pinimg.com/736x/67/38/08/67380873a3e7ae3ce4d5fe1b446730c1.jpg',
-            'rating' => '4.9 (540 Reviews)'
-        ],
-        [
-            'name' => 'White Stand Collar Crop Top with Gold Buttons',
-            'price' => '$45.90', 
-            'image' => 'https://i.pinimg.com/1200x/b3/7d/0e/b37d0eebf1fcc367c67ff2ab8af832ed.jpg',
-            'rating' => '5.0 (2k Reviews)'
-        ],
-        [
-            'name' => 'Khaki Ruched Blouse with Gold Brooch',
-            'price' => '$52.00', 
-            'image' => 'https://i.pinimg.com/736x/1e/98/d3/1e98d3b8df29cc97bead872adfb8245c.jpg',
-            'rating' => '4.6 (320 Reviews)'
-        ],
-       [
-            'name' => 'Burgundy Lace-Up Corset Vest',
-            'price' => '$42.00', 
-            'image' => 'https://i.pinimg.com/736x/85/63/ce/8563cefafd317696002c6badd9431802.jpg',
-            'rating' => '4.8 (1.5k Reviews)'
-        ],
-        [
-            'name' => 'Denim Off-Shoulder Two-Piece Look Top',
-            'price' => '$58.50', 
-            'image' => 'https://i.pinimg.com/1200x/16/82/04/168204f46ac9cb3777e8bcec25710842.jpg',
-            'rating' => '4.7 (780 Reviews)'
-        ],
-        [
-            'name' => 'Navy Blue Ruched Cami Top',
+            'name' => 'Classic Blue Denim Cargo Jeans with Pockets',
             'price' => '$45.00', 
-            'image' => 'https://i.pinimg.com/736x/9d/63/d6/9d63d6cf03cbe22742ae3ca186328a6f.jpg',
-            'rating' => '4.9 (410 Reviews)'
+            'image' => 'https://i.pinimg.com/1200x/3b/39/dd/3b39dd7215b0816a1ceeb289f00d5f98.jpg',
+            'rating' => '4.9 (510 Reviews)'
         ],
         [
-            'name' => 'Yellow Off-Shoulder Fuzzy Knit Sweater',
-            'price' => '$48.00', 
-            'image' => 'https://i.pinimg.com/1200x/46/55/58/46555866dfd03277a9969cacfcbc8f6b.jpg',
-            'rating' => '5.0 (1.1k Reviews)'
+            'name' => 'High-Waisted Khaki Straight-Leg Trousers',
+            'price' => '$38.00', 
+            'image' => 'https://i.pinimg.com/736x/83/6b/67/836b67ee309ea58b9d0f5be0c7f2f637.jpg',
+            'rating' => '4.7 (280 Reviews)'
         ],
         [
-            'name' => 'Light Blue Asymmetric Buckle Strap Top',
+            'name' => 'Black High-Waisted Tailored Shorts with Belt',
+            'price' => '$28.50', 
+            'image' => 'https://i.pinimg.com/1200x/fa/7d/b7/fa7db741cf6848f1c657e56af9bd17e2.jpg',
+            'rating' => '4.6 (190 Reviews)'
+        ],
+        [
+            'name' => 'Elegant White A-Line Long Maxi Skirt',
+            'price' => '$42.00', 
+            'image' => 'https://i.pinimg.com/1200x/5d/8d/7f/5d8d7ffcc26b927900801f2c941d513c.jpg',
+            'rating' => '4.9 (420 Reviews)'
+        ],
+        [
+            'name' => 'Vintage Dark Brown Velvet Tailored Shorts',
+            'price' => '$29.90', 
+            'image' => 'https://i.pinimg.com/736x/1c/f9/8b/1cf98b4c031a4ded24b883ae1ca75965.jpg',
+            'rating' => '4.8 (150 Reviews)'
+        ],
+        [
+            'name' => 'Minimalist Cream Knit Slit Midi Skirt',
+            'price' => '$36.00', 
+            'image' => 'https://i.pinimg.com/1200x/3f/cf/ca/3fcfcaff79887de446a577e00198aac6.jpg',
+            'rating' => '4.7 (210 Reviews)'
+        ],
+        [
+            'name' => 'Casual Khaki Drawstring Cargo Pants',
             'price' => '$40.00', 
-            'image' => 'https://i.pinimg.com/1200x/c8/e4/25/c8e425b1dae724269f5c0a4dc7afae87.jpg',
-            'rating' => '4.7 (630 Reviews)'
+            'image' => 'https://i.pinimg.com/1200x/10/ee/20/10ee20e6eff7444d141dc1cd312e7132.jpg',
+            'rating' => '4.8 (310 Reviews)'
         ],
         [
-            'name' => 'Floral Print Flare Sleeve Blouse',
-            'price' => '$55.00', 
-            'image' => 'https://i.pinimg.com/1200x/d1/fd/1d/d1fd1d025befd9053c81af4d593fe32d.jpg',
-            'rating' => '4.9 (890 Reviews)'
+            'name' => 'Classic Black High-Waisted Pleated Skirt',
+            'price' => '$32.00', 
+            'image' => 'https://i.pinimg.com/1200x/5d/35/c4/5d35c46e2929e0390d19afd27401bca5.jpg',
+            'rating' => '4.9 (670 Reviews)'
         ],
         [
-            'name' => 'White Button-Up Shirt with Brown Corset',
+            'name' => 'Dark Grey Pleated Tennis Mini Skirt',
+            'price' => '$26.00', 
+            'image' => 'https://i.pinimg.com/736x/1b/d7/93/1bd793fcb43bac9f2fc68ab48b5ed367.jpg',
+            'rating' => '4.7 (480 Reviews)'
+        ],
+        [
+            'name' => 'Aesthetic Sage Green Tiered Midi Skirt',
+            'price' => '$39.90', 
+            'image' => 'https://i.pinimg.com/736x/91/42/8a/91428a79a13e0c4a45a6e19d78442eb0.jpg',
+            'rating' => '4.8 (180 Reviews)'
+        ],
+        [
+            'name' => 'Brown High-Waisted Wide-Leg Suit Trousers',
             'price' => '$44.00', 
-            'image' => 'https://i.pinimg.com/1200x/aa/f9/de/aaf9deb5a01da5e90130be16db82f6f8.jpg',
-            'rating' => '4.6 (450 Reviews)'
+            'image' => 'https://i.pinimg.com/736x/81/15/c1/8115c106378956fca2dffa0d038af58b.jpg',
+            'rating' => '4.8 (290 Reviews)'
         ],
         [
-            'name' => 'Black Faux Leather Chain Strap Top',
-            'price' => '$52.00', 
-            'image' => 'https://i.pinimg.com/736x/8a/b1/53/8ab153f0e28ca15185e6045b487aecdd.jpg',
-            'rating' => '4.8 (1.2k Reviews)'
+            'name' => 'Elegant Khaki Pleated Midi Long Skirt',
+            'price' => '$41.50', 
+            'image' => 'https://i.pinimg.com/1200x/2a/45/93/2a4593469e968e4afc0467306f654ac8.jpg',
+            'rating' => '5.0 (130 Reviews)'
         ],
         [
-            'name' => 'Light Blue Modern Cheongsam Crop Top',
-            'price' => '$59.90', 
-            'image' => 'https://i.pinimg.com/1200x/88/06/77/8806774370cd1181ab6f62ea17676571.jpg',
-            'rating' => '4.7 (310 Reviews)'
+            'name' => 'Retro Corduroy Brown Button-Up Skirt',
+            'price' => '$34.00', 
+            'image' => 'https://i.pinimg.com/736x/55/c3/75/55c375c0dfc6dc93e7de93fa0b0abbd2.jpg',
+            'rating' => '4.6 (220 Reviews)'
+        ],
+        [
+            'name' => 'Dark Grey Pleated Mini Skirt with Belt',
+            'price' => '$35.90', 
+            'image' => 'https://i.pinimg.com/1200x/17/8c/bf/178cbff6c03e1f956edb0ff952a8838b.jpg',
+            'rating' => '4.8 (410 Reviews)'
         ],
     ];
-    @endphp
+@endphp
 
     <div class="px-[8%] flex gap-12 pt-10">
         <aside class="w-52 flex-shrink-0 font-42dot">
@@ -103,13 +100,13 @@ $tops = [
                 <li class="text-gray-800 cursor-pointer">All Product</li>
                 
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b-2 border-black"></span>
-                    <span class="font-bold text-black border-b-2 border-black">Tops</span>
+                    <span class="w-4 border-b-2 border-grey-300"></span>
+                    <span class="hover:text-black cursor-pointer">Tops</span>
                 </li>
                 
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Bottom</span>
+                    <span class="w-4 border-b border-black"></span> 
+                    <span class="font-bold text-black border-b-2 border-black">Bottom</span>
                 </li>
                 
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
@@ -149,7 +146,7 @@ $tops = [
             </div>
 
             <div class="grid grid-cols-3 gap-x-12 gap-y-16">
-                @foreach($tops as $item)
+                @foreach($bottom as $item)
                 <div class="flex flex-col">
                     <div class="relative bg-[#EAEAEA] aspect-[4/5] rounded-[30px] mb-4 overflow-hidden shadow-sm">
                         <img src="{{ $item['image'] }}" class="w-full h-full object-cover">
