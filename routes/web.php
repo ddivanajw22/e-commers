@@ -29,3 +29,7 @@ Route::get('/cart', function () {
 Route::get('/bottom', function () {
     return view('pages.bottom'); 
 });
+
+Route::get('/dresses', function () {
+    return view('pages.dresses');
+});
