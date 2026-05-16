@@ -37,3 +37,7 @@ Route::get('/dresses', function () {
 Route::get('/outerwear', function () {
     return view('pages.outerwear');
 });
+
+Route::get('/activewear', function () {
+    return view('pages.activewear');
+});
