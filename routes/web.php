@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.index'); 
 });
+Route::get('/', function () {
+    return view('pages.main menu.home'); 
+});
 Route::get('/login', function () {
     return view('auth');
 });
@@ -40,4 +43,12 @@ Route::get('/outerwear', function () {
 
 Route::get('/activewear', function () {
     return view('pages.activewear');
+});
+
+Route::get('/product/{id}', function ($id) {
+    return view('pages.detail', ['productId' => $id]);
+});
+
+Route::get('/test-detail', function () {
+    return view('pages.detail');
 });
