@@ -48,6 +48,12 @@ Route::get('/activewear', function () {
     return view('pages.activewear');
 });
 
+Route::get('/profile', function () {
+
+    return view('order');
+
+});
+
 Route::get('/product/{id}', function ($id) {
     return view('pages.detail', ['productId' => $id]);
 });
