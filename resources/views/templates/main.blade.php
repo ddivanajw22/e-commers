@@ -7,7 +7,11 @@
     <title>Ravenelle - Fashion Store</title>
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     </head>
+
+    
 <body>
 
     <nav class="navbar">

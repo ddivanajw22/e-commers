@@ -3,14 +3,17 @@
 use Illuminate\Support\Facades\Route;
 
 
+
 Route::get('/', function () {
     return view('pages.index'); 
 });
+
 Route::get('/', function () {
     return view('pages.main menu.home'); 
 });
+
 Route::get('/login', function () {
-    return view('auth');
+    return view('login');
 });
 
 Route::get('/register', function () {
@@ -52,3 +55,15 @@ Route::get('/product/{id}', function ($id) {
 Route::get('/test-detail', function () {
     return view('pages.detail');
 });
+
+Route::get('/form', function () {
+
+    return view('templates.form');
+
+});
+
+Route::post('/login',
+[LoginController::class,'login']);
+
+Route::post('/register',
+[RegisterController::class,'register']);
