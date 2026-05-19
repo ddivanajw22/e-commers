@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -19,6 +18,9 @@ class LoginController extends Controller
         if(Auth::attempt($credentials))
         {
 
+            $request->session()->regenerate();
+
+            // CEK ROLE
             if(Auth::user()->role == 'seller')
             {
                 return redirect('/seller/dashboard');
@@ -27,7 +29,9 @@ class LoginController extends Controller
             return redirect('/');
         }
 
-        return back()
-        ->with('error','Login gagal');
+        return back()->with(
+            'error',
+            'Email atau Password salah'
+        );
     }
 }
