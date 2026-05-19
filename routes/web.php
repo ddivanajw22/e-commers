@@ -9,9 +9,6 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('pages.main menu.home'); 
 });
-Route::get('/login', function () {
-    return view('auth');
-});
 
 Route::get('/register', function () {
     return view('register'); 
