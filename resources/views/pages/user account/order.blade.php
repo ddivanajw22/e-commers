@@ -52,6 +52,7 @@
                         <button class="bg-black text-white px-5 py-1.5 rounded-full text-xs font-semibold">Current</button>
                         <button class="border border-gray-300 px-5 py-1.5 rounded-full text-xs font-normal text-black hover:bg-gray-50">Unpaid</button>
                         <button class="border border-gray-300 px-5 py-1.5 rounded-full text-xs font-normal text-black hover:bg-gray-50">Done</button>
+                        <button class="border border-gray-300 px-5 py-1.5 rounded-full text-xs font-normal text-black hover:bg-gray-50">Canceled</button>
                     </div>
                 </div>
 
