@@ -52,3 +52,15 @@ Route::get('/product/{id}', function ($id) {
 Route::get('/test-detail', function () {
     return view('pages.detail');
 });
+
+Route::get('/form', function () {
+
+    return view('templates.form');
+
+});
+
+Route::post('/login',
+[LoginController::class,'login']);
+
+Route::post('/register',
+[RegisterController::class,'register']);
