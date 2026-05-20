@@ -13,43 +13,23 @@ Route::get('/', function () {
 //     return view('pages.main menu.home'); 
 // });
 
-Route::get('/login', function () {
-    // return view('login');
-});
+Route::get('/login', [LoginController::class, 'index']);
 
-Route::get('/register', function () {
-    // return view('register'); 
-});
-
-Route::get('/dashboard', function () {
-    return view('pages.index2'); 
-});
+Route::get('/register', [RegisterController::class, 'index']);;
 
 Route::get('/shop', [ShopController::class, 'index']);
 
-Route::get('/cart', function () {
-    return view('pages.cart');
-});
+Route::get('/cart', [CartController::class, 'index']);
 
-Route::get('/bottom', function () {
-    return view('pages.bottom'); 
-});
+Route::get('/bottom', [BottomController::class, 'index']);
 
-Route::get('/dresses', function () {
-    return view('pages.dresses');
-});
+Route::get('/dresses', [DressesController::class, 'index']);
 
-Route::get('/outerwear', function () {
-    return view('pages.outerwear');
-});
+Route::get('/outerwear', [OutwearController::class, 'index']);
 
-Route::get('/activewear', function () {
-    return view('pages.activewear');
-});
+Route::get('/activewear', [ActivewearController::class, 'index']);
 
-Route::get('/profile', function () {
-    return view('pages.user account.order');
-});
+Route::get('/order', [OrderController::class, 'index']);
 
 // Route::get('/profile', function () {
 
