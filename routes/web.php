@@ -32,7 +32,7 @@ Route::get('/cart', function () {
     return view('pages.cart');
 });
 
-Route::get('/bottoms', function () {
+Route::get('/bottom', function () {
     return view('pages.bottom'); 
 });
 

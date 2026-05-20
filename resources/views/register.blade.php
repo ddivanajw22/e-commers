@@ -72,18 +72,11 @@
             <div class="input-group">
 
                 <label>Foto Profile</label>
-
-                <input type="file"
-                name="photo">
+                <input type="file" name="photo">
 
             </div>
 
-            <button type="submit"
-            class="btn-register">
-
-                Register
-
-            </button>
+            <button type="submit" class="btn-register" href="/profile">Register</button>
 
         </form>
 
