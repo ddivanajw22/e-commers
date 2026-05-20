@@ -21,9 +21,9 @@
     <nav class="flex justify-between items-center px-[8%] py-7 sticky top-0 bg-white z-50 border-b border-gray-50 shadow-sm">
         <div class="text-3xl font-extrabold italic font-genos tracking-tighter">Ravenelle</div>
         <div class="flex items-center gap-12 text-lg font-bold font-genos">
-            <a href="#">Home</a>
-            <a href="#" class="bg-[#E5E7EB] px-7 py-1.5 rounded-md">Shop</a>
-            <a href="#">Blog</a>
+            <a href="/">Home</a>
+            <a href="/shop">Shop</a>
+            <a href="/blog">Blog</a>
         </div>
         <div class="flex gap-7 items-center">
             <button><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></button>
