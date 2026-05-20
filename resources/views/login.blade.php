@@ -14,7 +14,7 @@
             
             <div class="switch-box">
                 <button class="active-btn">Login</button>
-                <button class="inactive-btn">Register</button>
+                <button class="inactive-btn" href="/resiter">Register</button>
             </div>
 
             <form action="" method="POST" class="login-form">
