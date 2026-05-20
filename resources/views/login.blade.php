@@ -16,53 +16,52 @@
                 <button class="active-btn">Login</button>
                 <button class="inactive-btn" href="/resiter">Register</button>
             </div>
+<form action="/login" method="POST">
 
-            <form action="" method="POST" class="login-form">
+            @csrf
 
-                @csrf
+            <div class="input-group">
+                <label>Email</label>
 
-                <div class="input-group">
-                    <span class="input-icon">
-                        <i class="fa-regular fa-user"></i>
-                    </span>
+                <input type="email"
+                name="email"
+                placeholder="Masukkan email">
+            </div>
 
-                    <input 
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        class="input-box">
-                </div>
+            <div class="input-group">
+                <label>Password</label>
 
-                <div class="input-group">
-                    <span class="input-icon">
-                        <i class="fa-solid fa-lock"></i>
-                    </span>
+                <input type="password"
+                name="password"
+                placeholder="Masukkan password">
+            </div>
 
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        class="input-box">
-                </div>
+            <div class="input-group">
 
-                <div class="remember-box">
+                <label>Login Sebagai</label>
 
-                    <label class="remember-label">
-                        <input type="checkbox" name="remember">
-                        <span>Remember me</span>
-                    </label>
+                <select name="role">
 
-                    <a href="#" class="forgot-link">
-                        Forgot Password?
-                    </a>
+                    <option value="pelanggan">
+                        Pelanggan
+                    </option>
 
-                </div>
+                    <option value="seller">
+                        Seller/Admin
+                    </option>
 
-                <button type="submit" class="login-btn">
-                    Login
-                </button>
+                </select>
 
-            </form>
+            </div>
+
+            <button type="submit"
+            class="btn-login">
+
+                Login
+
+            </button>
+
+        </form>
 
             <div class="divider">
 

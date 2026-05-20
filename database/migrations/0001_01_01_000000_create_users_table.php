@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
             $table->enum('role',
             [
@@ -50,7 +49,6 @@ return new class extends Migration
             $table->string('nama_produk');
             $table->text('deskripsi');
             $table->decimal('harga',12,2);
-            $table->integer('stok');
             $table->string('gambar');
             $table->timestamps();
         });
@@ -65,7 +63,6 @@ return new class extends Migration
             $table->id('id_cart');
             $table->foreignId('id_user')->constrained('users');
             $table->foreignId('id_product')->constrained('products');
-            $table->integer('qty');
             $table->timestamps();
         });
 
