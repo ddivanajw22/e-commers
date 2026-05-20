@@ -68,8 +68,8 @@ Route::get('/form', function () {
 
 });
 
-Route::post('/login',
-[LoginController::class,'login']);
+// Route::post('/login',
+// [LoginController::class,'login']);
 
-Route::post('/register',
-[RegisterController::class,'register']);
+// Route::post('/register',
+// [RegisterController::class,'register']);

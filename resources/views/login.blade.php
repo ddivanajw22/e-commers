@@ -1,6 +1,8 @@
 @extends('templates.main')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
 
     <div class="bg-white rounded-[40px] shadow-2xl flex flex-col md:flex-row overflow-hidden max-w-4xl w-full">
