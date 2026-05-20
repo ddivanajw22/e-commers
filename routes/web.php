@@ -8,9 +8,9 @@ Route::get('/', function () {
     return view('pages.index'); 
 });
 
-Route::get('/', function () {
-    return view('pages.main menu.home'); 
-});
+// Route::get('/', function () {
+//     return view('pages.main menu.home'); 
+// });
 
 Route::get('/login', function () {
     return view('login');
@@ -48,7 +48,7 @@ Route::get('/activewear', function () {
     return view('pages.activewear');
 });
 
-Route::get('/order', function () {
+Route::get('/profile', function () {
     return view('pages.user account.order');
 });
 

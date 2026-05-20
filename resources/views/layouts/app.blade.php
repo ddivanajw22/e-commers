@@ -20,11 +20,11 @@
 
     <nav class="flex justify-between items-center px-[8%] py-7 sticky top-0 bg-white z-50 border-b border-gray-50 shadow-sm">
         <div class="text-3xl font-extrabold italic font-genos tracking-tighter cursor-pointer">
-            <a href="/dashboard">Ravenelle</a>
+            <a href="/">Ravenelle</a>
         </div>
         
         <div class="flex items-center gap-12 text-lg font-bold font-genos">
-            <a href="/dashboard" class="hover:text-gray-500">Home</a>
+            <a href="/" class="hover:text-gray-500">Home</a>
             <a href="/shop" class="bg-[#E5E7EB] px-7 py-1.5 rounded-md text-black">Shop</a>
             <a href="#" class="hover:text-gray-500">Blog</a>
         </div>
