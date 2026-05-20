@@ -114,50 +114,5 @@
         </div>
     </section>
 </div>
-</body>
-</html>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var swiper = new Swiper(".heroSwiper", {
-      loop: true,
-      speed: 1000,             
-      effect: "fade",           
-      fadeEffect: { 
-        crossFade: true 
-      },
-      autoplay: {
-        delay: 3500,            
-        disableOnInteraction: false, 
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  });
-</script>
-
-<style>
-    .swiper-pagination-bullet-active {
-        background: #000 !important;
-        width: 20px;
-        border-radius: 5px;
-    }
-    .swiper-button-next, .swiper-button-prev {
-        color: #000 !important;
-        transform: scale(0.7);
-    }
-    .hero-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-</style>
 @endsection
