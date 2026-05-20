@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
-{
+{   
+
+    public function index() {
+        // Disini Isi Halaman Untuk Login
+        return view('');
+    }
     public function login(Request $request)
     {
 
@@ -21,7 +26,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             // CEK ROLE
-            if(Auth::user()->role == 'seller')
+            if(Auth::user()->role == 'admin')
             {
                 return redirect('/seller/dashboard');
             }

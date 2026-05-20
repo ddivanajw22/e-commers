@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+
+    public function index() {
+        // Disini Isi Dengan Halaman Registrasi (Datanya Nama Sama Email Sama Password Aja)
+        return view();
+    }
     public function register(Request $request)
     {
 

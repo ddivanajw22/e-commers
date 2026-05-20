@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopController;
 
 
 
@@ -13,20 +14,18 @@ Route::get('/', function () {
 // });
 
 Route::get('/login', function () {
-    return view('login');
+    // return view('login');
 });
 
 Route::get('/register', function () {
-    return view('register'); 
+    // return view('register'); 
 });
 
 Route::get('/dashboard', function () {
     return view('pages.index2'); 
 });
 
-Route::get('/shop', function () {
-    return view('pages.shop');
-});
+Route::get('/shop', [ShopController::class, 'index']);
 
 Route::get('/cart', function () {
     return view('pages.cart');

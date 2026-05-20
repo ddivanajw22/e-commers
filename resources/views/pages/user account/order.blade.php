@@ -13,7 +13,7 @@
         <div class="flex gap-6 text-base items-center text-black">
             <button class="hover:text-gray-600"><i class="fa-solid fa-cart-shopping"></i></button>
             <button class="hover:text-gray-600"><i class="fa-regular fa-heart"></i></button>
-            <button class="hover:text-gray-600"><i class="fa-regular fa-user"></i></button>
+            <button class="hover:text-gray-600"><i class    ="fa-regular fa-user"></i></button>
         </div>
     </header>
 
