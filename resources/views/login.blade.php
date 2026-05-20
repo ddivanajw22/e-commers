@@ -13,8 +13,8 @@
             </h1>
             
             <div class="switch-box">
-                <button class="active-btn">Login</button>
-                <button class="inactive-btn" href="/resiter">Register</button>
+                <button class="active-btn" href="/profile">Login</button>
+                <button class="inactive-btn" href="/register">Register</button>
             </div>
 <form action="/login" method="POST">
 
@@ -55,11 +55,7 @@
             </div>
 
             <button type="submit"
-            class="btn-login">
-
-                Login
-
-            </button>
+class="btn-login">Login</button>
 
         </form>
 

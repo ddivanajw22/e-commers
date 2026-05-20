@@ -116,7 +116,7 @@
                     <span class="text-gray-400 ml-1">(2.3k Reviews)</span>
                 </div>
                 <div class="flex justify-between items-center mt-auto">
-                    <span class="text-2xl font-bold text-gray-900">$40.00</span>
+                    <span class="text-2xl font-bold text-gray-900">$50.00</span>
                     <div class="flex gap-2">
                         <button class="bg-gray-200 p-2 px-4 rounded-lg text-xs font-semibold hover:bg-gray-300">Add to Cart</button>
                         <button class="bg-black text-white p-2 px-4 rounded-lg text-xs font-semibold hover:bg-opacity-80">Buy Now</button>
