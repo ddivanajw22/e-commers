@@ -50,45 +50,17 @@
         </div>
     </section>
 
-    <div class="px-[8%] flex gap-12 pt-10">
-        <aside class="w-52 flex-shrink-0 font-42dot">
-            <h3 class="font-bold text-base mb-5">Category</h3>
-            <ul class="text-[13px] space-y-4 text-gray-500">
-                <li class="text-gray-800 cursor-pointer">All Product</li>
-                
-                <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b-2 border-black"></span>
-                    <span class="font-bold text-black border-b-2 border-black">Tops</span>
-                </li>
-                
-                <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Bottoms</span>
-                </li>
-                
-                <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Dresses</span>
-                </li>
-
-                <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Outerwear</span>
-                </li>
-
-                <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Activewear</span>
-                </li>
-            </ul>
-
-            <ul class="mt-10 text-[13px] space-y-4 text-gray-500 border-t pt-8">
-                <li class="hover:text-black cursor-pointer">New Arrival</li>
-                <li class="hover:text-black cursor-pointer">Best Seller</li>
-                <li class="hover:text-black cursor-pointer">On Discount</li>
-            </ul>
-        </aside>
-    </div>
+    <section class="py-12 px-6 lg:px-20">
+        <h2 class="text-2xl font-semibold mb-8 text-gray-800">Category</h2>
+        <div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
+            @php $categories = ['All Product', 'Tops', 'Bottom', 'Dresses', 'Outerwear', 'Activewear']; @endphp
+            @foreach($categories as $category)
+                <button class="px-6 py-2 border border-gray-300 rounded-full whitespace-nowrap hover:bg-black hover:text-white transition-all duration-300">
+                    {{ $category }}
+                </button>
+            @endforeach
+        </div>
+    </section>
 
     <section id="shop" class="py-12 px-6 lg:px-20 bg-white">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
