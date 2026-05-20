@@ -109,7 +109,7 @@ $tops = [
                 
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
                     <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Bottom</span>
+                    <span class="hover:text-black cursor-pointer">Bottoms</span>
                 </li>
                 
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
