@@ -59,13 +59,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('carts', function (Blueprint $table) {
-            $table->id('id_cart');
-            $table->foreignId('id_user')->constrained('users');
-            $table->foreignId('id_product')->constrained('products');
-            $table->timestamps();
-        });
-
         Schema::create('orders', function (Blueprint $table) {
             $table->id('id_order');
             $table->foreignId('id_user')->constrained('users');
@@ -89,75 +82,14 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('payments', function (Blueprint $table) {
-            $table->id('id_payment');
-            $table->foreignId('id_order')->constrained('orders');
-            $table->foreignId('id_user')->constrained('users');
-            $table->enum('metode',
-            [
-                'transfer e-wallet',
-                'transfer bank'
-            ]);
-            $table->string('bukti_bayar')->nullable();
-            $table->enum('status',
-            [
-                'pending',
-                'verified',
-                'rejected'
-            ])->default('pending');
-            $table->timestamps();
-        });
-
-        Schema::create('reviews', function (Blueprint $table) {
-            $table->id('id_review');
-            $table->foreignId('id_user')->constrained('users');
-            $table->foreignId('id_product')->constrained('products');
-            $table->integer('rating');
-            $table->text('komentar');
-            $table->timestamps();
-        });
-
-        Schema::create('blogs', function (Blueprint $table) {
-            $table->id('id_blog');
-            $table->foreignId('id_user')->constrained('users');
-            $table->string('judul');
-            $table->text('isi');
-            $table->string('gambar');
-            $table->timestamps();
-        });
-
-        Schema::create('wishlists', function (Blueprint $table) {
-            $table->id('id_wishlist');
-            $table->foreignId('id_user')->constrained('users');
-            $table->foreignId('id_product')->constrained('products');
-            $table->timestamps();
-        });
-
-        Schema::create('addresses', function (Blueprint $table) {
-            $table->id('id_address');
-            $table->foreignId('id_user')->constrained('users');
-            $table->string('alamat');
-            $table->string('kota');
-            $table->string('provinsi');
-            $table->string('kode_pos');
-            $table->timestamps();
-        });
-
-        Schema::create('transactions', function (Blueprint $table) {
-            $table->id('id_transaction');
-            $table->foreignId('id_order')->constrained('orders');
-            $table->foreignId('id_payment')->constrained('payments');
-            $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
-        Schema::dropIfExists('sessions');
-    }
-};
+        
+//     /**
+//      * Reverse the migrations.
+//      */
+//     // public function down(): void
+//     {
+//         Schema::dropIfExists('users');
+//         Schema::dropIfExists('password_reset_tokens');
+//         Schema::dropIfExists('sessions');
+//     }
+    };
