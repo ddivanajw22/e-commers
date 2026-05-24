@@ -26,7 +26,6 @@
         <div class="flex items-center gap-12 text-lg font-bold font-genos">
             <a href="/" class="hover:text-gray-500">Home</a>
             <a href="/shop" class="bg-[#E5E7EB] px-7 py-1.5 rounded-md text-black">Shop</a>
-            <a href="#" class="hover:text-gray-500">Blog</a>
         </div>
         
         <div class="flex gap-7 items-center">
