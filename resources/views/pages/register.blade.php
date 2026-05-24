@@ -1,4 +1,4 @@
-@extends('templates.main')
+@extends('layouts.app')
 
 @section('content')
 <div class="form-box">

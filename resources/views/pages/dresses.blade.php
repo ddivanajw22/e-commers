@@ -5,31 +5,33 @@
         <aside class="w-52 flex-shrink-0 font-42dot">
             <h3 class="font-bold text-base mb-5">Category</h3>
             <ul class="text-[13px] space-y-4 text-gray-500">
-                <li class="text-gray-800 cursor-pointer">All Product</li>
+                <li>
+                    <a href="/shop" class="text-gray-800 hover:text-black cursor-pointer">All Product</a>
+                </li>
             
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b-2 border-gray-300"></span>
-                    <span class="hover:text-black cursor-pointer">Tops</span>
+                    <span class="w-4 border-b border-gray-300"></span>
+                    <a href="/shop" class="hover:text-black cursor-pointer">Tops</a>
                 </li>
             
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
                     <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Bottoms</span>
+                    <a href="/bottom" class="hover:text-black cursor-pointer">Bottoms</a>
                 </li>
             
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b border-black"></span> 
-                    <span class="font-bold text-black border-b-2 border-black">Dresses</span>
+                    <span class="w-4 border-b-2 border-black"></span> 
+                    <a href="/dresses" class="font-bold text-black border-b-2 border-black cursor-pointer">Dresses</a>
                 </li>
 
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
                     <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Outerwear</span>
+                    <a href="/outerwear" class="hover:text-black cursor-pointer">Outerwear</a>
                 </li>
 
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
                     <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Activewear</span>
+                    <a href="/activewear" class="hover:text-black cursor-pointer">Activewear</a>
                 </li>
             </ul>
 
@@ -85,4 +87,4 @@
             </div>
         </main>
     </div>
-    @endsection
+@endsection

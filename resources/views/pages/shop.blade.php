@@ -5,31 +5,33 @@
         <aside class="w-52 flex-shrink-0 font-42dot">
             <h3 class="font-bold text-base mb-5">Category</h3>
             <ul class="text-[13px] space-y-4 text-gray-500">
-                <li class="text-gray-800 cursor-pointer">All Product</li>
+                <li>
+                    <a href="/shop" class="text-gray-800 hover:text-black cursor-pointer">All Product</a>
+                </li>
                 
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
                     <span class="w-4 border-b-2 border-black"></span>
-                    <span class="font-bold text-black border-b-2 border-black">Tops</span>
+                    <a href="/shop" class="font-bold text-black border-b-2 border-black">Tops</a>
                 </li>
                 
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
                     <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Bottoms</span>
+                    <a href="/bottom" class="hover:text-black cursor-pointer transition-colors">Bottoms</a>
                 </li>
                 
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
                     <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Dresses</span>
+                    <a href="/dresses" class="hover:text-black cursor-pointer transition-colors">Dresses</a>
                 </li>
 
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
                     <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Outerwear</span>
+                    <a href="/outerwear" class="hover:text-black cursor-pointer transition-colors">Outerwear</a>
                 </li>
 
                 <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
                     <span class="w-4 border-b border-gray-300"></span> 
-                    <span class="hover:text-black cursor-pointer">Activewear</span>
+                    <a href="/activewear" class="hover:text-black cursor-pointer transition-colors">Activewear</a>
                 </li>
             </ul>
 
@@ -69,8 +71,15 @@
                         <span class="text-[10px] text-gray-400 italic">★ {{ $item['rating'] }}</span>
                         <span class="font-bold text-xs">{{ $item['price'] }}</span>
                     </div>
+                    
                     <div class="flex gap-2 mt-4">
-                        <button class="flex-1 border border-black rounded-full py-2 text-[10px] font-bold hover:bg-black hover:text-white transition-all">Add to cart</button>
+                        <form action="/cart/add" method="POST" class="flex-1">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $item['id'] }}">
+                            <button type="submit" class="w-full border border-black rounded-full py-2 text-[10px] font-bold hover:bg-black hover:text-white transition-all cursor-pointer">
+                                Add to cart
+                            </button>
+                        </form>
                         <button class="flex-1 bg-black text-white rounded-full py-2 text-[10px] font-bold hover:bg-gray-800 transition-all">Buy now</button>
                     </div>
                 </div>

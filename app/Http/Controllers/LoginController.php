@@ -7,14 +7,13 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {   
-
     public function index() {
-        // Disini Isi Halaman Untuk Login
-        return view('');
+        // Mengarahkan ke file resources/views/pages/login.blade.php
+        return view('pages.login');
     }
+
     public function login(Request $request)
     {
-
         $credentials = $request->only(
             'email',
             'password'
@@ -22,7 +21,6 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials))
         {
-
             $request->session()->regenerate();
 
             // CEK ROLE
