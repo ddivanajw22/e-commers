@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <title>Ravenelle - Shop</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,700;1,800&family=42dot+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -29,27 +31,35 @@
         </div>
         
         <div class="flex gap-7 items-center">
-            <a href="/cart" class="hover:text-gray-500 transition-colors">
+            <a href="/cart" class="hover:text-gray-500 transition-colors relative">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
                     <line x1="3" y1="6" x2="21" y2="6"/>
                     <path d="M16 10a4 4 0 0 1-8 0"/>
                 </svg>
+                @if(session()->has('cart') && count(session('cart')) > 0)
+                    <span class="absolute -top-2 -right-2 bg-black text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
+                        {{ count(session('cart')) }}
+                    </span>
+                @endif
             </a>
             
-            <button class="hover:text-gray-500 transition-colors">
+            <a href="/wishlist" class="hover:text-gray-500 transition-colors relative" id="wishlist-link">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                 </svg>
-            </button>
+                <span id="wishlist-count" class="absolute -top-2 -right-2 bg-black text-white text-[9px] font-bold w-4 h-4 {{ count(session('wishlist', [])) > 0 ? 'flex' : 'hidden' }} items-center justify-center rounded-full">
+                    {{ count(session('wishlist', [])) }}
+                </span>
+            </a>
             
-           <a href="/login" class="hover:text-gray-500 transition-colors" title="Login">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="11" stroke="black" stroke-width="2"/>
-        <path d="M12 11.5C13.6569 11.5 15 10.1569 15 8.5C15 6.84315 13.6569 5.5 12 5.5C10.3431 5.5 9 6.84315 9 8.5C9 10.1569 10.3431 11.5 12 11.5Z" fill="black"/>
-        <path d="M6 18.5C6 15.1863 8.68629 12.5 12 12.5C15.3137 12.5 18 15.1863 18 18.5" stroke="black" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-</a>
+            <a href="/login" class="hover:text-gray-500 transition-colors" title="Login">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="11" stroke="black" stroke-width="2"/>
+                    <path d="M12 11.5C13.6569 11.5 15 10.1569 15 8.5C15 6.84315 13.6569 5.5 12 5.5C10.3431 5.5 9 6.84315 9 8.5C9 10.1569 10.3431 11.5 12 11.5Z" fill="black"/>
+                    <path d="M6 18.5C6 15.1863 8.68629 12.5 12 12.5C15.3137 12.5 18 15.1863 18 18.5" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
         </div>
     </nav>
 
