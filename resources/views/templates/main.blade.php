@@ -30,7 +30,8 @@
     </nav>
 
     <div class="container">
-        @yield('content')
+        <!-- @yield('content') -->
+         
     </div>
 
     <footer class="footer">
