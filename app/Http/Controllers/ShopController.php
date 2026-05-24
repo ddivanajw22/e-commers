@@ -41,3 +41,4 @@ class ShopController extends Controller
     return back()->with('success', 'Produk berhasil ditambahkan!');
 }
 }
+

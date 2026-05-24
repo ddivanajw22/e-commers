@@ -2,37 +2,37 @@
 
 @section('content')
     <div class="px-[8%] flex gap-12 pt-10">
+
         <aside class="w-52 flex-shrink-0 font-42dot">
+            
             <h3 class="font-bold text-base mb-5">Category</h3>
-            <ul class="text-[13px] space-y-4 text-gray-500">
-                <li>
-                    <a href="/shop" class="text-gray-800 hover:text-black cursor-pointer">All Product</a>
-                </li>
-            
-                <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b border-gray-300"></span>
-                    <a href="/shop" class="hover:text-black cursor-pointer">Tops</a>
-                </li>
-            
-                <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b border-gray-300"></span> 
-                    <a href="/bottom" class="hover:text-black cursor-pointer">Bottoms</a>
-                </li>
-            
-                <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b-2 border-black"></span> 
-                    <a href="/dresses" class="font-bold text-black border-b-2 border-black cursor-pointer">Dresses</a>
-                </li>
 
-                <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b border-gray-300"></span> 
-                    <a href="/outerwear" class="hover:text-black cursor-pointer">Outerwear</a>
-                </li>
+            <div class="font-bold text-[13px] mb-2 text-black">All Product</div>
 
-                <li class="relative pl-5 flex items-center gap-2 before:content-[''] before:absolute before:left-[7px] before:top-[-10px] before:bottom-2 before:w-[1px] before:bg-gray-300">
-                    <span class="w-4 border-b border-gray-300"></span> 
-                    <a href="/activewear" class="hover:text-black cursor-pointer">Activewear</a>
-                </li>
+            <ul class="relative ml-[7px]">
+                
+                <li class="absolute left-0 top-[16px] bottom-[16px] w-[1px] bg-black"></li>
+
+                @php
+    $categories = [
+        'Tops'       => '/shop',
+        'Bottom'     => '/bottom',
+        'Dresses'    => '/dresses',
+        'Outerwear'  => '/outerwear',
+        'Activewear' => '/activewear'
+    ];
+@endphp
+
+@foreach($categories as $label => $url)
+<li class="relative py-[6px] pl-5">
+    <span class="absolute left-0 top-[16px] w-4 border-t border-black"></span>
+    
+    <a href="{{ $url }}" 
+       class="text-[13px] {{ request()->is(ltrim($url, '/')) ? 'font-bold text-black' : 'text-gray-500' }} hover:text-black transition-colors block">
+        {{ $label }}
+    </a>
+</li>
+@endforeach
             </ul>
 
             <ul class="mt-10 text-[13px] space-y-4 text-gray-500 border-t pt-8">
@@ -40,6 +40,7 @@
                 <li class="hover:text-black cursor-pointer">Best Seller</li>
                 <li class="hover:text-black cursor-pointer">On Discount</li>
             </ul>
+
         </aside>
 
         <main class="flex-1">
@@ -59,8 +60,8 @@
                 @foreach($dresses as $item)
                 <div class="flex flex-col">
                     <div class="relative bg-[#EAEAEA] aspect-[4/5] rounded-[30px] mb-4 overflow-hidden shadow-sm">
-                        <img src="{{ $item['image'] }}" class="w-full h-full object-cover">
-                        <button class="absolute top-5 right-5 text-gray-800">
+                        <img src="{{ $item['image'] }}" class="w-full h-full object-cover rounded-[30px]">
+                        <button class="absolute top-5 right-5 text-gray-800 outline-none">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                             </svg>
