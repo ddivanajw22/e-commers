@@ -24,7 +24,6 @@
             <li><a href="/">Home</a></li>
             <li><a href="/wishlist">Wishlist</a></li>
             <li><a href="/checkout">Cart</a></li>
-            <li><a href="/blog">Blog</a></li>
             <li><a href="/profile">Profile</a></li>
             <li><a href="/login">Login</a></li>
         </ul>
