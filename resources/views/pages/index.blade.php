@@ -82,11 +82,7 @@
                     <img src="/img/product-sample.jpg" alt="Product" class="w-full aspect-square object-contain group-hover:scale-110 transition duration-500">
                 </div>
                 <h3 class="font-medium text-lg mb-1">Asymmetrical Waist-Cinching Sweatshirt</h3>
-                <div class="flex items-center mb-4 text-sm">
-                    <span class="text-yellow-400 mr-1">★</span>
-                    <span class="text-gray-500 font-medium">5.0</span>
-                    <span class="text-gray-400 ml-1">(2.3k Reviews)</span>
-                </div>
+                <div class="flex items-center mb-4 text-sm"></div>
                 <div class="flex justify-between items-center mt-auto">
                     <span class="text-2xl font-bold text-gray-900">$50.00</span>
                     <div class="flex gap-2">
