@@ -42,6 +42,15 @@
                             <input type="hidden" name="index" value="{{ $index }}">
                             <button type="submit" class="text-red-500 font-bold text-sm">Hapus</button>
                         </form>
+                        <form action="{{ route('checkout.store') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id ?? $index }}"> 
+                            <input type="hidden" name="quantity" value="1">
+                            
+                            <button type="submit" class="bg-black text-white p-2 px-4 rounded-lg text-xs font-semibold hover:bg-opacity-80 transition">
+                                Beli Sekarang
+                            </button>
+                        </form>
                     </div>
                 @endforeach
             </div>
