@@ -37,7 +37,7 @@
                             <h4 class="font-bold">Produk ID: {{ $cartId }}</h4>
                             <p class="text-sm text-gray-400">Tersedia dalam stok</p>
                         </div>
-                    <div class="flex items-center gap-4 w-full sm:w-auto justify-end">
+                    <div class="flex items-center gap-8 w-full sm:w-auto justify-end">
                         <form action="/cart/remove" method="POST">
                             @csrf
                             <input type="hidden" name="index" value="{{ $index }}">
