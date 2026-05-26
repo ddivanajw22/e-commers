@@ -6,7 +6,7 @@
     <title>Register</title>
 </head>
 <body>
-
+<div class="container">
     <div style="max-width: 400px; margin: 50px auto;">
         <h2>Create an Account</h2>
 

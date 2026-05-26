@@ -20,12 +20,11 @@
             </h1>
 
         <div class="flex border border-black rounded-full w-fit mb-8 overflow-hidden mx-auto">
-                        <button class="bg-white text-black px-5 py-1 text-sm font-semibold">Login</button>
-                            <link href="Register.blade.php" class="Login" rel="stylesheet">
-                        <button class="bg-black text-white px-5 py-1 text-sm font-semibold">Register</button>
+                        <button class="bg-black text-white px-5 py-1 text-sm font-semibold">Login</button>
+                        <button class="bg-white text-black px-5 py-1 text-sm font-semibold">Register</button>
                     </div>
 
-        <form action="{{ route('login.perform') }}" method="POST">
+        <form action="{{ route('login.perform') }}" method="POST" class="space-y-4 max-w-[300px] mx-auto w-full">
             @csrf <div>
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" value="{{ old('email') }}" required>
