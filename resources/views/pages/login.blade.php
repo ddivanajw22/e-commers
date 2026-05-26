@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Ravenelle - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Genos:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
 <body>
 
-    <div style="max-width: 400px; margin: 50px auto;">
-        <h2>Login</h2>
+        <div class="bg-white rounded-[40px] shadow-2xl flex flex-col md:flex-row overflow-hidden max-w-4xl w-full">
+        
+        <div class="w-full md:w-1/2 p-10 flex flex-col justify-center">
+            
+            <h1 class="text-3xl font-genos font-[900] mb-5 text-center tracking-tight">
+                Ravenelle
+            </h1>
+
+        <div class="flex border border-black rounded-full w-fit mb-8 overflow-hidden mx-auto">
+                        <button class="bg-white text-black px-5 py-1 text-sm font-semibold">Login</button>
+                            <link href="Register.blade.php" class="Login" rel="stylesheet">
+                        <button class="bg-black text-white px-5 py-1 text-sm font-semibold">Register</button>
+                    </div>
 
         <form action="{{ route('login.perform') }}" method="POST">
             @csrf <div>
