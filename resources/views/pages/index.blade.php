@@ -38,11 +38,6 @@
                 </div>
 
             </div>
-            
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next hidden md:flex"></div>
-            <div class="swiper-button-prev hidden md:flex"></div>
-        </div>
     </section>
 
     <section class="py-12 px-6 lg:px-20">
