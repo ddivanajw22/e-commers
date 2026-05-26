@@ -67,6 +67,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', [HomeProductController::class, 'index']);
 
+
 Route::get('/shop', [ShopController::class, 'index']);
 
 Route::get('/bottom', [BottomController::class, 'index']);
@@ -78,7 +79,7 @@ Route::get('/outerwear', [OuterwearController::class, 'index']);
 Route::get('/activewear', [ActivewearController::class, 'index']);
 
 
-
+Route::view('/profile', 'pages.user account.order');
 
 
 Route::get('/new-arrival', [HomeProductController::class, 'newArrival']);
