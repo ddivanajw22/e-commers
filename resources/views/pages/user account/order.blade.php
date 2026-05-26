@@ -22,7 +22,7 @@
 
         <div class="flex gap-6">
             <aside class="w-1/4 bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] p-5 h-fit">
-                <p class="font-bold text-sm mb-5 text-black">Welcome, Mia!</p>
+                <p class="font-bold text-sm mb-5 text-black">Welcome, <strong>{{ session('registered_name') }}</strong>!</p>
                 
                 <div class="flex flex-col">
                     <button class="flex justify-between items-center w-full py-3 px-4 border border-gray-200 rounded-lg text-sm font-semibold mb-2 text-left bg-white text-black">
