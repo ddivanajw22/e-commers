@@ -15,7 +15,7 @@ class HomeProductController extends Controller
     {
         $products = $this->products()->values();
 
-        return view('index', compact('products'));
+        return view('pages.index', compact('products'));
     }
 
     public function newArrival()
