@@ -10,35 +10,30 @@
                 <div class="swiper-slide relative">
                     <img src="banner.jpg" alt="1" class="hero-img">
                     <div class="absolute inset-0 flex items-end justify-center pb-16">
-                        <a href="#shop" class="bg-black text-white px-10 py-3 rounded-full hover:bg-gray-800 transition duration-300 shadow-lg">Shop Now</a>
                     </div>
                 </div>
 
                 <div class="swiper-slide relative">
                     <img src="banner2.jpg" alt="2" class="hero-img">
                     <div class="absolute inset-0 flex items-end justify-center pb-16">
-                        <a href="#shop" class="bg-black text-white px-10 py-3 rounded-full hover:bg-gray-800 transition duration-300 shadow-lg">Shop Now</a>
                     </div>
                 </div>
 
                 <div class="swiper-slide relative">
                     <img src="banner3.jpg" alt="3" class="hero-img">
                     <div class="absolute inset-0 flex items-end justify-center pb-16">
-                        <a href="#shop" class="bg-black text-white px-10 py-3 rounded-full hover:bg-gray-800 transition duration-300 shadow-lg">Shop Now</a>
                     </div>
                 </div>
 
                 <div class="swiper-slide relative">
                     <img src="banner4.jpg" alt="4" class="hero-img">
                     <div class="absolute inset-0 flex items-end justify-center pb-16">
-                        <a href="#shop" class="bg-black text-white px-10 py-3 rounded-full hover:bg-gray-800 transition duration-300 shadow-lg">Shop Now</a>
                     </div>
                 </div>
 
                 <div class="swiper-slide relative">
                     <img src="banner5.jpg" alt="5" class="hero-img">
                     <div class="absolute inset-0 flex items-end justify-center pb-16">
-                        <a href="#shop" class="bg-black text-white px-10 py-3 rounded-full hover:bg-gray-800 transition duration-300 shadow-lg">Shop Now</a>
                     </div>
                 </div>
 
