@@ -29,8 +29,12 @@
     </div>
 
     <div class="flex items-center gap-12 text-lg font-bold font-genos relative z-50">
-        <a href="/" class="hover:text-gray-500">Home</a>
-        <a href="/shop" class="bg-[#E5E7EB] px-7 py-1.5 rounded-md text-black">Shop</a>
+        <a href="/" class="px-7 py-1.5 rounded-md text-black transition-all {{ request()->is('/') ? 'bg-[#E5E7EB]' : 'hover:text-gray-500' }}">
+            Home
+        </a>
+        <a href="/shop" class="px-7 py-1.5 rounded-md text-black transition-all {{ request()->is('shop*') ? 'bg-[#E5E7EB]' : 'hover:text-gray-500' }}">
+            Shop
+        </a>
     </div>
 
     <div class="grid grid-cols-3 gap-6 items-center justify-items-center relative z-[9999] isolate">
@@ -116,7 +120,7 @@
                     </li>
                     <li class="flex items-center gap-3">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1 22 16.92z"/>
                         </svg>
                         123456789
                     </li>
