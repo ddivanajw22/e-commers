@@ -6,7 +6,9 @@
         <aside class="w-52 flex-shrink-0 font-42dot">
             <h3 class="font-bold text-lg mb-5 tracking-wide">Category</h3>
             
-            <div class="font-bold text-[13px] mb-2 text-black">All Product</div>
+            <div class="font-bold text-[13px] mb-2 text-black">
+                <a href="{{ url('/shop') }}">All Product</a>
+            </div>
 
             <ul class="relative ml-[7px]">
                 <li class="absolute left-0 top-[16px] bottom-[16px] w-[1px] bg-black"></li>
@@ -26,9 +28,24 @@
             <hr class="my-6 border-gray-200">
 
             <ul class="text-[14px] space-y-4 text-gray-500">
-                <li class="hover:text-black cursor-pointer transition-colors">New Arrival</li>
-                <li class="hover:text-black cursor-pointer transition-colors">Best Seller</li>
-                <li class="hover:text-black cursor-pointer transition-colors">On Discount</li>
+                <li>
+                    <a href="{{ route('shop.new-arrival') }}" 
+                       class="hover:text-black block transition-colors {{ request()->is('new-arrival') ? 'font-bold text-black' : '' }}">
+                        New Arrival
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('shop.best-seller') }}" 
+                       class="hover:text-black block transition-colors {{ request()->is('best-seller') ? 'font-bold text-black' : '' }}">
+                        Best Seller
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('shop.on-discount') }}" 
+                       class="hover:text-black block transition-colors {{ request()->is('on-discount') ? 'font-bold text-black' : '' }}">
+                        On Discount
+                    </a>
+                </li>
             </ul>
         </aside>
 

@@ -11,6 +11,7 @@ class HomeProductController extends Controller
         return collect(ProductData::all());
     }
 
+   
     public function index()
     {
         $products = $this->products()->values();
@@ -21,10 +22,33 @@ class HomeProductController extends Controller
     public function newArrival()
     {
         $products = $this->products()
-            ->sortByDesc('sold') 
+            ->sortByDesc('id') 
             ->values();
 
         return view('pages.new-arrival', compact('products'));
     }
 
+  
+    public function bestSeller()
+    {
+        $products = $this->products()
+            ->sortByDesc('sold') 
+            ->values();
+
+        
+        return view('pages.best-seller', compact('products'));
+    }
+
+    public function onDiscount()
+    {
+        $products = $this->products()
+            ->filter(function ($product) {
+              
+                return isset($product['discount']) && $product['discount'] > 0;
+            })
+            ->values();
+
+       
+        return view('pages.on-discount', compact('products'));
+    }
 }
