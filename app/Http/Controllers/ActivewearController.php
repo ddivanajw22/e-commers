@@ -59,7 +59,6 @@ class ActivewearController extends Controller
             'rating' => '4.7 (155 Reviews)'
         ],
         [
-            'name' => 'Minimalist Square-Neck Crop Top & Skirt Workout Set',
             'price' => '$76.00', 
             'image' => 'https://i.pinimg.com/736x/11/a6/79/11a679a75d2212c75553f923688e8371.jpg',
             'rating' => '4.9 (192 Reviews)'

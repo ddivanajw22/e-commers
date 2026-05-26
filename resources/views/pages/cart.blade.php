@@ -47,7 +47,7 @@
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $index }}"> 
                             <input type="hidden" name="quantity" value="1">
-                            <button type="submit" class="bg-black text-white p-2 px-4 rounded-lg text-xs font-semibold hover:bg-opacity-80 transition">
+                            <button type="submit" class="btn btn-primary" class="bg-black text-white p-2 px-4 rounded-lg text-xs font-semibold hover:bg-opacity-80 transition">
                                 Beli Sekarang
                             </button>
                         </form>

@@ -1,87 +1,56 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
 
-@section('content')
-<div class="form-box">
+    <div style="max-width: 400px; margin: 50px auto;">
+        <h2>Create an Account</h2>
 
-        <h2>Register Account</h2>
-
-        <form action="/register"
-        method="POST"
-        enctype="multipart/form-data">
-
+        <form action="{{ route('register.perform') }}" method="POST">
             @csrf
 
-            <div class="input-group">
-
-                <label>Nama Lengkap</label>
-
-                <input type="text"
-                name="name"
-                placeholder="Masukkan nama">
-
+            <div>
+                <label for="name">Full Name:</label>
+                <input type="text" name="name" id="name" value="{{ old('name') }}" required>
+                @error('name') <p style="color: red;">{{ $message }}</p> @enderror
             </div>
 
-            <div class="input-group">
+            <br>
 
-                <label>Email</label>
-
-                <input type="email"
-                name="email"
-                placeholder="Masukkan email">
-
+            <div>
+                <label for="email">Email Address:</label>
+                <input type="email" name="email" id="email" value="{{ old('email') }}" required>
+                @error('email') <p style="color: red;">{{ $message }}</p> @enderror
             </div>
 
-            <div class="input-group">
+            <br>
 
-                <label>No HP</label>
-
-                <input type="text"
-                name="phone"
-                placeholder="08xxxxxxxxxx">
-
+            <div>
+                <label for="password">Password (min 8 chars):</label>
+                <input type="password" name="password" id="password" required>
+                @error('password') <p style="color: red;">{{ $message }}</p> @enderror
             </div>
 
-            <div class="input-group">
+            <br>
 
-                <label>Password</label>
-
-                <input type="password"
-                name="password"
-                placeholder="Masukkan password">
-
+            <div>
+                <label for="password_confirmation">Confirm Password:</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" required>
             </div>
 
-            <div class="input-group">
+            <br>
 
-                <label>Role</label>
-
-                <select name="role">
-
-                    <option value="pelanggan">
-                        Pelanggan
-                    </option>
-
-                    <option value="seller">
-                        Seller/Admin
-                    </option>
-
-                </select>
-
-            </div>
-
-            <div class="input-group">
-
-                <label>Foto Profile</label>
-                <input type="file" name="photo">
-
-            </div>
-
-            <button type="submit" class="btn-register" href="/profile">Register</button>
-
+            <button type="submit">Register</button>
         </form>
 
+        <p style="margin-top: 20px;">
+            Already have an account? <a href="{{ route('login') }}">Login here</a>
+        </p>
     </div>
 
-</div>
-
-@endsection
+</body>
+</html>

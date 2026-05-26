@@ -7,34 +7,45 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {   
-    public function index() {
-        // Mengarahkan ke file resources/views/pages/login.blade.php
+    public function index() 
+    {
         return view('pages.login');
     }
 
     public function login(Request $request)
     {
-        $credentials = $request->only(
-            'email',
-            'password'
-        );
+        // 1. Validate the request data
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
-        if(Auth::attempt($credentials))
-        {
+        // 2. Attempt to log the user in
+        if (Auth::attempt($credentials)) {
+            // Regenerate session to prevent session fixation attacks
             $request->session()->regenerate();
 
-            // CEK ROLE
-            if(Auth::user()->role == 'admin')
-            {
-                return redirect('/seller/dashboard');
+            // 3. Role-based redirection
+            if (Auth::user()->role === 'seller') {
+                return redirect()->intended(route('seller.dashboard'));
             }
 
-            return redirect('/');
+            // Default redirect for other roles (e.g., normal user dashboard)
+            return redirect()->intended(route('dashboard'));
         }
 
-        return back()->with(
-            'error',
-            'Email atau Password salah'
-        );
+        // 4. If login fails, redirect back with an error message
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email'); // Keeps the email filled in for convenience
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        
+        return redirect()->route('login');
     }
 }
