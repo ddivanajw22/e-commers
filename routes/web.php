@@ -28,6 +28,7 @@ use App\Http\Controllers\AuthController;
 
 
 
+
 Route::get('/', function () { return view('pages.index'); });
 
 
@@ -80,6 +81,7 @@ Route::get('/activewear', [ActivewearController::class, 'index']);
 
 
 Route::view('/profile', 'pages.user account.order');
+Route::view('/profile', [HomeProductController::class, 'index']);
 
 
 Route::get('/new-arrival', [HomeProductController::class, 'newArrival']);
