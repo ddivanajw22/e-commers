@@ -29,13 +29,23 @@
     </div>
 
     <div class="flex items-center gap-12 text-lg font-bold font-genos relative z-50">
-        <a href="/" class="px-7 py-1.5 rounded-md text-black transition-all {{ request()->is('/') ? 'bg-[#E5E7EB]' : 'hover:text-gray-500' }}">
-            Home
-        </a>
-        <a href="/shop" class="px-7 py-1.5 rounded-md text-black transition-all {{ request()->is('shop*') ? 'bg-[#E5E7EB]' : 'hover:text-gray-500' }}">
-            Shop
-        </a>
-    </div>
+    <a href="/" class="px-7 py-1.5 rounded-md text-black transition-all {{ request()->is('/') ? 'bg-[#E5E7EB]' : 'hover:text-gray-500' }}">
+        Home
+    </a>
+    
+    <a href="/shop" class="px-7 py-1.5 rounded-md text-black transition-all 
+        {{ (request()->is('shop*') || 
+            request()->is('bottom*') || 
+            request()->is('dresses*') || 
+            request()->is('outerwear*') || 
+            request()->is('activewear*') || 
+            request()->is('new-arrival*') || 
+            request()->is('best-seller*') || 
+            request()->is('on-discount*')) 
+            ? 'bg-[#E5E7EB]' : 'hover:text-gray-500' }}">
+        Shop
+    </a>
+</div>
 
     <div class="flex gap-8 items-center relative z-[9999]">
 

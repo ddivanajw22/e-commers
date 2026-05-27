@@ -3,6 +3,7 @@
 @section('content')
 <div class="px-[8%] flex gap-12 pt-10">
 
+    {{-- SIDEBAR --}}
     <aside class="w-52 flex-shrink-0 font-42dot">
         <h3 class="font-bold text-base mb-5">Category</h3>
         
@@ -52,9 +53,18 @@
         </ul>
     </aside>
 
+    {{-- MAIN CONTENT --}}
     <main class="flex-1">
         <h2 class="text-xl font-bold mb-6">
-            {{ request()->routeIs('shop.new-arrival') ? 'New Arrival' : 'Best Seller' }}
+            @if(request()->routeIs('shop.new-arrival'))
+                New Arrival
+            @elseif(request()->routeIs('shop.best-seller'))
+                Best Seller
+            @elseif(request()->routeIs('shop.on-discount'))
+                On Discount
+            @else
+                Products
+            @endif
         </h2>
 
         <div class="grid grid-cols-3 gap-x-12 gap-y-16">
