@@ -27,12 +27,14 @@
         <form action="{{ route('login.perform') }}" method="POST" class="space-y-4 max-w-[300px] mx-auto w-full">
             @csrf 
             <div>
+                <div class="relative">
                 <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
                     <i class="fa-regular fa-user"></i>
                 </span>
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" value="{{ old('email') }}" required>
                     class="w-full pl-10 pr-4 py-2 border border-black rounded-full focus:outline-none">
+                </div>
                 @error('email')
                     <p style="color: red;">{{ $message }}</p>
                 @enderror
@@ -41,8 +43,14 @@
             <br>
 
             <div>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
+                        <i class="fa-solid fa-lock"></i>
+                    </span>
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password" required>
+                    class="w-full pl-10 pr-10 py-2 border border-black rounded-full focus:outline-none">
+                </div>
                 @error('password')
                     <p style="color: red;">{{ $message }}</p>
                 @enderror
@@ -50,8 +58,15 @@
 
             <br>
 
-            <button type="submit">Log In</button>
+            <button type="submit" class="w-full bg-black text-white py-2 rounded-full font-bold hover:bg-gray-800 transition">Log In</button>
         </form>
+
+        <div class="hidden md:block md:w-1/1 relative bg-gray-200">
+            <img src="" 
+                alt="Profile" class="w-full h-full object-cover grayscale">
+            <div class="absolute inset-0 bg-black/5"></div>
+        </div>
+
         <p style="margin-top: 20px;">Don't have an account? <a href="{{ route('register') }}">Register here</a></p>
     </div>
 </body>
