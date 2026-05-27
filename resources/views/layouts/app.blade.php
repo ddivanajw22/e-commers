@@ -37,44 +37,36 @@
         </a>
     </div>
 
-    <div class="grid grid-cols-3 gap-6 items-center justify-items-center relative z-[9999] isolate">
+    <div class="flex gap-8 items-center relative z-[9999]">
 
-        <div class="relative w-8 h-8 flex items-center justify-center">
-            <a href="/cart" class="text-black hover:text-gray-500 block relative p-1 z-[10000]">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                </svg>
-                @if(session()->has('cart') && count(session('cart')) > 0)
-                    <span class="absolute -top-1 -right-1 bg-black text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full pointer-events-none">
-                        {{ count(session('cart')) }}
-                    </span>
-                @endif
-            </a>
-        </div>
-
-        <div class="relative w-8 h-8 flex items-center justify-center">
-            <a href="/wishlist" class="text-black hover:text-gray-500 block relative p-1 z-[10000]">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                </svg>
-                <span class="absolute -top-1 -right-1 bg-black text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full pointer-events-none
-                    {{ count(session('wishlist', [])) > 0 ? 'flex' : 'hidden' }}">
-                    {{ count(session('wishlist', [])) }}
+        <a href="/cart" class="relative group">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="20" r="2"></circle>
+                <circle cx="20" cy="20" r="2"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            @if(session()->has('cart') && count(session('cart')) > 0)
+                <span class="absolute -top-1 -right-1 bg-black text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
+                    {{ count(session('cart')) }}
                 </span>
-            </a>
-        </div>
+            @endif
+        </a>
 
-        <div class="relative w-8 h-8 flex items-center justify-center">
-            <a href="/login" class="text-black hover:text-gray-500 block relative p-1 z-[10000]">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="11" stroke="black" stroke-width="2"/>
-                    <path d="M12 11.5C13.6569 11.5 15 10.1569 15 8.5C15 6.84315 13.6569 5.5 12 5.5C10.3431 5.5 9 6.84315 9 8.5C9 10.1569 10.3431 11.5 12 11.5Z" fill="black"/>
-                    <path d="M6 18.5C6 15.1863 8.68629 12.5 12 12.5C15.3137 12.5 18 15.1863 18 18.5" stroke="black" stroke-width="2"/>
-                </svg>
-            </a>
-        </div>
+        <a href="/wishlist" class="relative group">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span class="absolute -top-1 -right-1 bg-black text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full {{ count(session('wishlist', [])) > 0 ? 'flex' : 'hidden' }}">
+                {{ count(session('wishlist', [])) }}
+            </span>
+        </a>
+
+        <a href="/login" class="group">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </a>
 
     </div>
 </nav>
