@@ -1,42 +1,37 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Seluruh halaman putih bersih -->
 <div class="w-full bg-white min-h-screen pb-16 flex flex-col items-center">
 
-    <!-- Hero Section -->
-    <div class="w-full h-[480px] relative overflow-hidden flex justify-center items-center bg-white select-none">
-        <h1 class="absolute z-10 text-5xl font-extrabold font-genos tracking-wider text-center leading-[0.95] text-black uppercase not-italic pointer-events-none">
-            Wear The <br> Trend
-        </h1>
-        <div class="slide-item absolute inset-0 flex justify-between items-center transition-opacity duration-1000 opacity-100 px-[8%]">
-            <div class="flex gap-6 items-center">
-                <img src="{{ asset('images/hero/model1a.png') }}" class="h-[420px] object-contain" alt="Model 1A">
-                <img src="{{ asset('images/hero/model1b.png') }}" class="h-[420px] object-contain" alt="Model 1B">
+    <div class="w-full h-[480px] relative overflow-hidden bg-white select-none">
+        
+        <div class="relative w-full h-full">
+            <div class="slide-item absolute inset-0 transition-opacity duration-500 opacity-100">
+                <img src="{{ asset('assets/banner.png') }}" class="w-full h-full object-contain" alt="Banner 1">
             </div>
-            <div class="flex gap-6 items-center">
-                <img src="{{ asset('images/hero/model1c.png') }}" class="h-[420px] object-contain" alt="Model 1C">
-                <img src="{{ asset('images/hero/model1d.png') }}" class="h-[420px] object-contain" alt="Model 1D">
+
+            <div class="slide-item absolute inset-0 transition-opacity duration-500 opacity-0">
+                <img src="{{ asset('assets/banner2.png') }}" class="w-full h-full object-contain" alt="Banner 2">
             </div>
-        </div>
-        <div class="slide-item absolute inset-0 flex justify-between items-center transition-opacity duration-1000 opacity-0 px-[8%]">
-            <div class="flex gap-6 items-center">
-                <img src="{{ asset('images/hero/model2a.png') }}" class="h-[420px] object-contain" alt="Model 2A">
-                <img src="{{ asset('images/hero/model2b.png') }}" class="h-[420px] object-contain" alt="Model 2B">
+
+            <div class="slide-item absolute inset-0 transition-opacity duration-500 opacity-0">
+                <img src="{{ asset('assets/banner3.png') }}" class="w-full h-full object-contain" alt="Banner 3">
             </div>
-            <div class="flex gap-6 items-center">
-                <img src="{{ asset('images/hero/model2c.png') }}" class="h-[420px] object-contain" alt="Model 2C">
-                <img src="{{ asset('images/hero/model2d.png') }}" class="h-[420px] object-contain" alt="Model 2D">
+
+            <div class="slide-item absolute inset-0 transition-opacity duration-500 opacity-0">
+                <img src="{{ asset('assets/banner4.png') }}" class="w-full h-full object-contain" alt="Banner 4">
+            </div>
+
+            <div class="slide-item absolute inset-0 transition-opacity duration-500 opacity-0">
+                <img src="{{ asset('assets/banner5.png') }}" class="w-full h-full object-contain" alt="Banner 5">
             </div>
         </div>
     </div>
 
-    <!-- Main Container -->
     <div class="w-[92%] bg-white rounded-[45px] shadow-[0_20px_60px_rgba(0,0,0,0.12)] p-12 mt-8 relative z-20 border border-gray-100">
         
         <div class="flex justify-between items-center mb-16">
-            <!-- Ukuran judul dikecilkan menjadi text-2xl -->
-            <h2 class="text-2xl font-extrabold font-genos tracking-wider text-black capitalize">Find Your Style</h2>
+            <h2 class="text-4xl font-extrabold font-genos tracking-wider text-black capitalize">Find Your Style</h2>
             <a href="/shop" class="text-sm font-bold text-black border-b-2 border-black hover:text-gray-500 hover:border-gray-500 transition-colors">
                 Category
             </a>
@@ -72,11 +67,13 @@
     document.addEventListener("DOMContentLoaded", function () {
         const slides = document.querySelectorAll('.slide-item');
         let currentSlide = 0;
+        
+        // Jeda 2 detik (2000ms) antar banner
         setInterval(() => {
             slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.replace('opacity-0', 'opacity-100');
-        }, 3500);
+        }, 2000); 
     });
 </script>
 @endsection
