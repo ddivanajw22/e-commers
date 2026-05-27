@@ -68,11 +68,10 @@
                 </div>
                 
                 <h4 class="text-[13px] font-bold">{{ $item['name'] }}</h4>
-                
                 <div class="flex justify-between items-center mt-1">
-                    <span class="text-[10px] text-gray-400 italic">★ {{ $item['rating'] }}</span>
-                    <span class="font-bold text-xs">Rp {{ number_format($item['price']) }}</span>
-                </div>
+    <span class="text-[10px] text-gray-400 italic">★ {{ $item['rating'] }}</span>
+    <span class="font-bold text-xs">{{ $item['price'] }}</span>
+</div>
 
                 <div class="flex gap-2 mt-4">
                     <button class="flex-1 border border-black rounded-full py-2 text-[10px] font-bold hover:bg-black hover:text-white transition-all">Add to cart</button>
