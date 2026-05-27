@@ -4,76 +4,67 @@
 <div class="w-full bg-white min-h-screen pb-16 flex flex-col items-center">
 
     <div class="w-full h-[480px] relative overflow-hidden bg-white select-none">
-        
         <div class="relative w-full h-full">
-            <div class="slide-item absolute inset-0 transition-opacity duration-500 opacity-100">
-                <img src="{{ asset('assets/banner.png') }}" class="w-full h-full object-contain" alt="Banner 1">
+            @foreach(range(1, 5) as $i)
+            <div class="slide-item absolute inset-0 transition-opacity duration-1000 {{ $i == 1 ? 'opacity-100' : 'opacity-0' }}">
+                <img src="{{ asset('assets/banner' . ($i > 1 ? $i : '') . '.png') }}" class="w-full h-full object-cover" alt="Banner {{ $i }}">
             </div>
-
-            <div class="slide-item absolute inset-0 transition-opacity duration-500 opacity-0">
-                <img src="{{ asset('assets/banner2.png') }}" class="w-full h-full object-contain" alt="Banner 2">
-            </div>
-
-            <div class="slide-item absolute inset-0 transition-opacity duration-500 opacity-0">
-                <img src="{{ asset('assets/banner3.png') }}" class="w-full h-full object-contain" alt="Banner 3">
-            </div>
-
-            <div class="slide-item absolute inset-0 transition-opacity duration-500 opacity-0">
-                <img src="{{ asset('assets/banner4.png') }}" class="w-full h-full object-contain" alt="Banner 4">
-            </div>
-
-            <div class="slide-item absolute inset-0 transition-opacity duration-500 opacity-0">
-                <img src="{{ asset('assets/banner5.png') }}" class="w-full h-full object-contain" alt="Banner 5">
-            </div>
+            @endforeach
         </div>
     </div>
 
     <div class="w-[92%] bg-white rounded-[45px] shadow-[0_20px_60px_rgba(0,0,0,0.12)] p-12 mt-8 relative z-20 border border-gray-100">
         
-        <div class="flex justify-between items-center mb-16">
-            <h2 class="text-4xl font-extrabold font-genos tracking-wider text-black capitalize">Find Your Style</h2>
+        <div class="flex justify-between items-center mb-12">
+            <h2 class="text-4xl font-extrabold font-genos tracking-wider text-black capitalize">
+                {{ request()->route('category') ? ucfirst(request()->route('category')) : 'Our Collection' }}
+            </h2>
             <a href="/shop" class="text-sm font-bold text-black border-b-2 border-black hover:text-gray-500 hover:border-gray-500 transition-colors">
-                Category
+                View All
             </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+        @if($products->isEmpty())
+            <div class="text-center py-20 text-gray-500 font-bold">Produk tidak ditemukan.</div>
+        @else
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             @foreach($products as $product)
                 <div class="flex flex-col group">
-                    <div class="bg-[#F3F4F6] rounded-2xl aspect-[3/4] relative overflow-hidden flex items-center justify-center p-4">
-                        <img src="{{ $product['image'] }}" class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300" alt="{{ $product['name'] }}">
+                    <div class="relative overflow-hidden rounded-[30px] aspect-square bg-gray-100">
+                        <img src="{{ $product['image'] }}" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                             alt="{{ $product['name'] }}">
+                        
+                        @if(isset($product['is_discount']) && $product['is_discount'])
+                            <span class="absolute top-4 left-4 bg-black text-white text-[9px] px-3 py-1 rounded-full font-bold uppercase tracking-wider z-10">Sale</span>
+                        @endif
                     </div>
-                    <div class="mt-4 flex flex-col flex-grow">
-                        <h4 class="font-bold text-xs text-black leading-tight line-clamp-2">{{ $product['name'] }}</h4>
-                        <span class="text-xs font-black text-black mt-1">Rp {{ number_format($product['price'], 0, ',', '.') }}</span>
-                        <div class="grid grid-cols-2 gap-2 mt-3">
-                            <button class="border border-black text-black font-bold text-[10px] py-1.5 rounded-full hover:bg-gray-50 transition-colors">Add</button>
-                            <button class="bg-black text-white font-bold text-[10px] py-1.5 rounded-full hover:bg-gray-800 transition-colors">Buy</button>
+
+                    <div class="mt-4 px-1">
+                        <h4 class="font-bold text-xs text-black leading-snug truncate">{{ $product['name'] }}</h4>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-[10px] text-gray-400 font-medium">★ {{ $product['rating'] }}</span>
+                            <span class="text-xs font-black text-black">{{ $product['price'] }}</span>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-
-        <div class="flex justify-center items-center mt-20 gap-4 text-sm font-bold text-gray-400">
-            <a href="/shop" class="flex items-center gap-2 text-black hover:opacity-70 transition-opacity">
-                Next <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-        </div>
+        @endif
     </div>
 </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const slides = document.querySelectorAll('.slide-item');
-        let currentSlide = 0;
-        
-        // Jeda 2 detik (2000ms) antar banner
-        setInterval(() => {
-            slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.replace('opacity-0', 'opacity-100');
-        }, 2000); 
+        if (slides.length > 0) {
+            let currentSlide = 0;
+            setInterval(() => {
+                slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.replace('opacity-0', 'opacity-100');
+            }, 3000);
+        }
     });
 </script>
 @endsection

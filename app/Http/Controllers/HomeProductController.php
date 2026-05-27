@@ -6,31 +6,40 @@ use App\Data\ProductData;
 
 class HomeProductController extends Controller
 {
+    /**
+     * Helper untuk mengambil semua produk dari class ProductData
+     */
     private function products()
     {
         return collect(ProductData::all());
     }
 
+    /**
+     * Menampilkan halaman utama (Home)
+     */
     public function index()
     {
-        $products = $this->products()->values();
+        $products = $this->products();
         return view('pages.index', compact('products'));
     }
 
-    // --- TAMBAHKAN FUNGSI INI UNTUK FILTER KATEGORI ---
+    /**
+     * Filter berdasarkan kategori (Tops, Bottom, dll)
+     */
     public function category($category)
     {
         $products = $this->products()
             ->filter(function ($product) use ($category) {
-                // Pastikan di data produkmu ada kolom 'category'
                 return isset($product['category']) && strtolower($product['category']) === strtolower($category);
             })
             ->values();
 
         return view('pages.index', compact('products'));
     }
-    // --------------------------------------------------
 
+    /**
+     * Menampilkan produk terbaru berdasarkan ID tertinggi
+     */
     public function newArrival()
     {
         $products = $this->products()
@@ -40,6 +49,9 @@ class HomeProductController extends Controller
         return view('pages.new-arrival', compact('products'));
     }
 
+    /**
+     * Menampilkan produk terlaris berdasarkan jumlah sold terbanyak
+     */
     public function bestSeller()
     {
         $products = $this->products()
@@ -49,11 +61,15 @@ class HomeProductController extends Controller
         return view('pages.best-seller', compact('products'));
     }
 
+    /**
+     * Menampilkan produk yang sedang diskon
+     */
     public function onDiscount()
     {
         $products = $this->products()
             ->filter(function ($product) {
-                return isset($product['discount']) && $product['discount'] > 0;
+                // Sesuai dengan struktur ProductData Anda yang menggunakan 'is_discount' (boolean)
+                return isset($product['is_discount']) && $product['is_discount'] === true;
             })
             ->values();
 
