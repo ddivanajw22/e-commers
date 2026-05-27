@@ -25,9 +25,14 @@
                     </div>
 
         <form action="{{ route('login.perform') }}" method="POST" class="space-y-4 max-w-[300px] mx-auto w-full">
-            @csrf <div>
+            @csrf 
+            <div>
+                <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
+                    <i class="fa-regular fa-user"></i>
+                </span>
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" value="{{ old('email') }}" required>
+                    class="w-full pl-10 pr-4 py-2 border border-black rounded-full focus:outline-none">
                 @error('email')
                     <p style="color: red;">{{ $message }}</p>
                 @enderror
