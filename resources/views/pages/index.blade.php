@@ -3,17 +3,21 @@
 @section('content')
 <div class="w-full bg-white min-h-screen pb-16 flex flex-col items-center">
 
-<div class="pt-20">
-    <div class="w-full h-[60vh] relative overflow-hidden bg-white select-none">
-        <div class="relative w-full h-full">
-            @foreach(range(1, 5) as $i)
-            <div class="slide-item absolute inset-0 transition-opacity duration-1000 {{ $i == 1 ? 'opacity-100' : 'opacity-0' }}">
-                <img src="{{ asset('assets/banner' . ($i > 1 ? $i : '') . '.png') }}" class="w-full h-full object-contain" alt="Banner {{ $i }}">
+    <div class="pt-20">
+        <div class="w-full h-[60vh] relative overflow-hidden bg-white select-none">
+            <div class="relative w-full h-full">
+                @foreach(range(1, 5) as $i)
+                    <div class="slide-item absolute inset-0 transition-opacity duration-1000 {{ $i == 1 ? 'opacity-100' : 'opacity-0' }}">
+                        <img 
+                            src="{{ asset('assets/banner' . ($i > 1 ? $i : '') . '.png') }}"
+                            class="w-full h-full object-cover object-center"
+                            alt="Banner {{ $i }}"
+                        >
+                    </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
-</div>
 
     <div class="w-[92%] bg-white rounded-[45px] shadow-[0_20px_60px_rgba(0,0,0,0.12)] p-12 mt-8 relative z-20 border border-gray-100">
         
