@@ -32,7 +32,7 @@
                     <i class="fa-regular fa-user"></i>
                 </span>
                 <label for="email">Email:</label>
-                <input type="email" name="email" id="email" value="{{ old('email') }}" required>
+                <input type="email" name="email" id="email" value="{{ old('email') }}" required
                     class="w-full pl-10 pr-4 py-2 border border-black rounded-full focus:outline-none">
                 </div>
                 @error('email')
@@ -48,7 +48,7 @@
                         <i class="fa-solid fa-lock"></i>
                     </span>
                 <label for="password">Password:</label>
-                <input type="password" name="password" id="password" required>
+                <input type="password" name="password" id="password" required
                     class="w-full pl-10 pr-10 py-2 border border-black rounded-full focus:outline-none">
                 </div>
                 @error('password')
