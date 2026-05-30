@@ -30,6 +30,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
+Route::middleware('auth')->group(function () {
+    // Route ini memanggil OrderController
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
 
 Route::get('/', [HomeProductController::class, 'index'])->name('home');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
