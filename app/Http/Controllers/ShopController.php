@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class ShopController extends Controller
 { 
     public function index() {
-        // Data produk dengan 'id' yang wajib ada
         $tops = [
             ['id' => 1, 'name' => 'Asymmetrical Collar Crop Sweatshirt', 'price' => '$40.00', 'image' => 'https://i.pinimg.com/1200x/0d/f3/07/0df307f04ca36d28eb7dd4eb4ebfcadb.jpg', 'rating' => '5.0 (1.3k Reviews)'],
             ['id' => 2, 'name' => 'Dark Brown Faux Leather Wrap Shirt', 'price' => '$59.00', 'image' => 'https://i.pinimg.com/1200x/94/3d/68/943d6825adef9ef9015628287212ec06.jpg', 'rating' => '4.8 (850 Reviews)'],
@@ -28,16 +27,22 @@ class ShopController extends Controller
         return view('pages.shop', compact('tops'));
     }
 
-   public function add(Request $request)
-{
-    $productId = $request->input('product_id');
-    $cart = session()->get('cart', []);
-    
-    
-    $cart[] = $productId;
-    session()->put('cart', $cart);
+    public function add(Request $request)
+    {
+        $newItem = [
+            'id'    => $request->product_id,
+            'name'  => $request->name,
+            'price' => $request->price,
+            'image' => $request->image
+        ];
 
-  
-    return back()->with('success', 'Produk berhasil ditambahkan!');
-}
+        $cart = session()->get('cart', []);
+        $cart[] = $newItem;
+        session()->put('cart', $cart);
+
+        return response()->json([
+            'success' => true, 
+            'message' => 'Produk berhasil ditambahkan ke keranjang!'
+        ]);
+    }
 }

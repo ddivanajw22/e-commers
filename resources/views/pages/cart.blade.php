@@ -30,35 +30,49 @@
                 <a href="/shop" class="bg-black text-white px-8 py-3 rounded-full font-bold">Mulai Belanja</a>
             </div>
         @else
-            <div class="grid grid-cols-1 gap-6">
-                @foreach(session('cart') as $index => $cartId)
-                    <div class="border border-gray-200 p-6 rounded-[25px] flex justify-between items-center">
-                        <div>
-                            <h4 class="font-bold">Produk ID: {{ $cartId }}</h4>
-                            <p class="text-sm text-gray-400">Tersedia dalam stok</p>
-                        </div>
-                    <div class="flex items-center gap-8 w-full sm:w-auto justify-end">
-                        <form action="/cart/remove" method="POST">
-                            @csrf
-                            <input type="hidden" name="index" value="{{ $index }}">
-                            <button type="submit" class="text-red-500 font-bold text-sm">Hapus</button>
-                        </form>
-                        <form action="/checkout" method="POST">
-                            @csrf
-                            <input type="hidden" name="product_id" value="{{ $index }}"> 
-                            <input type="hidden" name="quantity" value="1">
-                            <button type="submit" class="btn btn-primary" class="bg-black text-white p-2 px-4 rounded-lg text-xs font-semibold hover:bg-opacity-80 transition">
-                                Beli Sekarang
-                            </button>
-                        </form>
-                    </div>
-                    </div>
-                @endforeach
-            </div>
-            
-            <div class="mt-12 flex justify-end">
-                <a href="/checkout" class="bg-black text-white px-12 py-4 rounded-full font-bold">Checkout Sekarang</a>
-            </div>
+            <form action="/checkout/selected" method="POST">
+                @csrf
+                {{-- Tabel Keranjang dengan Checkbox --}}
+                <div class="border border-gray-200 rounded-[25px] overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <tbody>
+                            @foreach(session('cart') as $index => $item)
+                                <tr class="border-b border-gray-100 last:border-b-0">
+                                    {{-- Checkbox untuk seleksi produk --}}
+                                    <td class="p-6">
+                                        <input type="checkbox" name="selected_items[]" value="{{ $index }}" class="w-5 h-5 accent-black cursor-pointer">
+                                    </td>
+                                    <td class="p-6 flex items-center gap-4">
+                                        <img src="{{ $item['image'] }}" class="w-16 h-16 object-cover rounded-lg">
+                                        <div>
+                                            <h4 class="font-bold">{{ $item['name'] }}</h4>
+                                            <p class="text-sm text-gray-500">{{ $item['price'] }}</p>
+                                        </div>
+                                    </td>
+                                    <td class="p-6">
+                                        <div class="flex items-center border border-gray-300 rounded-lg w-max">
+                                            <button type="button" class="px-3 py-1 hover:bg-gray-100">-</button>
+                                            <span class="px-3 font-bold">1</span>
+                                            <button type="button" class="px-3 py-1 hover:bg-gray-100">+</button>
+                                        </div>
+                                    </td>
+                                    <td class="p-6 font-bold">{{ $item['price'] }}</td>
+                                    <td class="p-6">
+                                        <a href="/cart/remove/{{ $index }}" class="text-red-500 font-bold hover:underline">Hapus</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                
+                {{-- Tombol Checkout (Submit Form) --}}
+                <div class="mt-8 flex justify-end">
+                    <button type="submit" class="bg-black text-white px-12 py-4 rounded-full font-bold hover:bg-gray-800 transition shadow-lg">
+                        Checkout
+                    </button>
+                </div>
+            </form>
         @endif
     </div>
 
