@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Ravenelle - Your Cart</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,700;1,800&family=42dot+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -30,15 +31,13 @@
                 <a href="/shop" class="bg-black text-white px-8 py-3 rounded-full font-bold">Mulai Belanja</a>
             </div>
         @else
-            <form action="/checkout/selected" method="POST">
+            <form action="{{ route('cart.checkout') }}" method="POST">
                 @csrf
-                {{-- Tabel Keranjang dengan Checkbox --}}
                 <div class="border border-gray-200 rounded-[25px] overflow-hidden">
                     <table class="w-full text-left border-collapse">
-                        <tbody>
-                            @foreach(session('cart') as $index => $item)
-                                <tr class="border-b border-gray-100 last:border-b-0">
-                                    {{-- Checkbox untuk seleksi produk --}}
+                        <tbody id="cart-items">
+                            @foreach(session('cart', []) as $index => $item)
+                                <tr id="row-{{ $index }}" class="border-b border-gray-100 last:border-b-0">
                                     <td class="p-6">
                                         <input type="checkbox" name="selected_items[]" value="{{ $index }}" class="w-5 h-5 accent-black cursor-pointer">
                                     </td>
@@ -49,16 +48,11 @@
                                             <p class="text-sm text-gray-500">{{ $item['price'] }}</p>
                                         </div>
                                     </td>
-                                    <td class="p-6">
-                                        <div class="flex items-center border border-gray-300 rounded-lg w-max">
-                                            <button type="button" class="px-3 py-1 hover:bg-gray-100">-</button>
-                                            <span class="px-3 font-bold">1</span>
-                                            <button type="button" class="px-3 py-1 hover:bg-gray-100">+</button>
-                                        </div>
-                                    </td>
                                     <td class="p-6 font-bold">{{ $item['price'] }}</td>
                                     <td class="p-6">
-                                        <a href="/cart/remove/{{ $index }}" class="text-red-500 font-bold hover:underline">Hapus</a>
+                                        <button type="button" onclick="hapusItem({{ $index }})" class="text-red-500 font-bold hover:underline transition-all hover:text-red-700">
+                                            Hapus
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -66,7 +60,6 @@
                     </table>
                 </div>
                 
-                {{-- Tombol Checkout (Submit Form) --}}
                 <div class="mt-8 flex justify-end">
                     <button type="submit" class="bg-black text-white px-12 py-4 rounded-full font-bold hover:bg-gray-800 transition shadow-lg">
                         Checkout
@@ -80,5 +73,40 @@
         <div class="text-2xl font-extrabold italic font-genos">Ravenelle</div>
         <p class="text-gray-500 text-sm mt-2">Terima kasih sudah berbelanja di Ravenelle.</p>
     </footer>
+
+    <script>
+        function hapusItem(index) {
+            if (!confirm('Hapus item ini dari keranjang?')) return;
+
+            // Mengirim request ke rute /cart/remove/{index}
+            fetch(`/cart/remove/${index}`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Hapus elemen dari tabel tanpa reload
+                    const row = document.getElementById(`row-${index}`);
+                    if (row) row.remove();
+                    
+                    // Jika keranjang kosong, reload untuk memicu tampilan "Kosong"
+                    if (document.querySelectorAll('#cart-items tr').length === 0) {
+                        location.reload();
+                    }
+                } else {
+                    alert('Gagal menghapus item.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan koneksi.');
+            });
+        }
+    </script>
 </body>
 </html>

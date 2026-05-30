@@ -11,20 +11,19 @@ use App\Http\Controllers\{
     SellerController
 };
 
+
 Route::get('/', [HomeProductController::class, 'index'])->name('home');
-
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
-
-
 Route::get('/shop/{category}', [ShopController::class, 'categoryFilter'])->name('shop.category');
-
-
 Route::get('/product/{id}', function ($id) { return view('pages.detail', ['productId' => $id]); })->name('product.detail');
 
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
 Route::post('/cart/add', [ShopController::class, 'add'])->name('cart.add');
+
+Route::post('/cart/remove/{index}', [CartController::class, 'remove'])->name('cart.remove');
+
+Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
 
 
 Route::middleware('guest')->group(function () {
@@ -42,12 +41,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', function () { return view('pages.order'); })->name('profile');
     Route::get('/order', function () { return view('pages.order'); })->name('order.index');
     
-    Transaksi
-    Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+    
     Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::post('/wishlist/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
     
-  
     Route::get('/seller/dashboard', [SellerController::class, 'dashboard'])->name('seller.dashboard');
     Route::post('/seller/order/{id}/konfirmasi', [SellerController::class, 'konfirmasiOrder'])->name('seller.konfirmasi');
 });
