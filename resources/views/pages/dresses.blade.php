@@ -80,12 +80,6 @@
                 @endforeach
             </div>
 
-            <div class="flex justify-center items-center gap-5 mt-24 mb-40 text-[12px] font-medium text-gray-400">
-                <button>← Previous</button>
-                <span class="bg-black text-white w-8 h-8 flex items-center justify-center rounded-lg shadow-md">1</span>
-                <span>2</span><span>3</span><span>...</span>
-                <button class="text-black font-bold">Next →</button>
-            </div>
         </main>
     </div>
 @endsection
