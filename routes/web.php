@@ -19,6 +19,13 @@ use App\Http\Controllers\OrderController;
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('login.perform');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Proteksi Halaman Order/Profile (Hanya bisa diakses jika email & password COCOK)
+    Route::middleware('auth')->group(function () {
+        Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    });
+    
     
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::post('/register', [RegisterController::class, 'register'])->name('register.perform');
