@@ -42,10 +42,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', function () { return view('pages.order'); })->name('profile');
     Route::get('/order', function () { return view('pages.order'); })->name('order.index');
     
-    Transaksi
-    Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
-    Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-    Route::post('/wishlist/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
+    // Transaksi
+    // Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+    // Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    // Route::post('/wishlist/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
     
   
     Route::get('/seller/dashboard', [SellerController::class, 'dashboard'])->name('seller.dashboard');
