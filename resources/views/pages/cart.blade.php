@@ -31,27 +31,32 @@
             </div>
         @else
             <div class="grid grid-cols-1 gap-6">
-                @foreach(session('cart') as $index => $cartId)
+                {{-- Kita gunakan $item sebagai representasi array produk --}}
+                @foreach(session('cart') as $index => $item)
                     <div class="border border-gray-200 p-6 rounded-[25px] flex justify-between items-center">
-                        <div>
-                            <h4 class="font-bold">Produk ID: {{ $cartId }}</h4>
-                            <p class="text-sm text-gray-400">Tersedia dalam stok</p>
+                        <div class="flex items-center gap-4">
+                            <img src="{{ $item['image'] }}" class="w-16 h-16 object-cover rounded-lg">
+                            <div>
+                                <h4 class="font-bold">{{ $item['name'] }}</h4>
+                                <p class="text-sm text-gray-500">{{ $item['price'] }}</p>
+                            </div>
                         </div>
-                    <div class="flex items-center gap-8 w-full sm:w-auto justify-end">
-                        <form action="/cart/remove" method="POST">
-                            @csrf
-                            <input type="hidden" name="index" value="{{ $index }}">
-                            <button type="submit" class="text-red-500 font-bold text-sm">Hapus</button>
-                        </form>
-                        <form action="/checkout" method="POST">
-                            @csrf
-                            <input type="hidden" name="product_id" value="{{ $index }}"> 
-                            <input type="hidden" name="quantity" value="1">
-                            <button type="submit" class="btn btn-primary" class="bg-black text-white p-2 px-4 rounded-lg text-xs font-semibold hover:bg-opacity-80 transition">
-                                Beli Sekarang
-                            </button>
-                        </form>
-                    </div>
+
+                        <div class="flex items-center gap-8 w-full sm:w-auto justify-end">
+                            <form action="/cart/remove" method="POST">
+                                @csrf
+                                <input type="hidden" name="index" value="{{ $index }}">
+                                <button type="submit" class="text-red-500 font-bold text-sm">Hapus</button>
+                            </form>
+                            
+                            <form action="/checkout" method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $item['id'] }}"> 
+                                <button type="submit" class="bg-black text-white p-2 px-4 rounded-lg text-xs font-semibold hover:bg-opacity-80 transition">
+                                    Beli Sekarang
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 @endforeach
             </div>

@@ -64,7 +64,7 @@
 
             <div class="grid grid-cols-3 gap-x-12 gap-y-16">
                 @foreach($tops as $item)
-                <div class="flex flex-col">
+                <div class="flex flex-col h-full">
                     <div class="relative bg-[#EAEAEA] aspect-[4/5] rounded-[30px] mb-4 overflow-hidden shadow-sm">
                         <img src="{{ $item['image'] }}" class="w-full h-full object-cover rounded-[30px]">
                         <button id="btn-{{ $item['id'] }}" data-id="{{ $item['id'] }}" data-name="{{ $item['name'] }}" data-image="{{ $item['image'] }}" data-price="{{ $item['price'] }}" onclick="toggleWishlist(this)" class="absolute top-5 right-5 z-20 outline-none">
@@ -73,15 +73,23 @@
                             </svg>
                         </button>
                     </div>
-                    <h4 class="text-[13px] font-bold">{{ $item['name'] }}</h4>
-                    <div class="flex justify-between items-center mt-1">
-                        <span class="text-[10px] text-gray-400 italic">★ {{ $item['rating'] }}</span>
-                        <span class="font-bold text-xs">{{ $item['price'] }}</span>
+                    
+                    <div class="flex flex-col flex-grow">
+                        <h4 class="text-[13px] font-bold">{{ $item['name'] }}</h4>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-[10px] text-gray-400 italic">★ {{ $item['rating'] }}</span>
+                            <span class="font-bold text-xs">{{ $item['price'] }}</span>
+                        </div>
                     </div>
-                    <div class="flex gap-2 mt-4">
-                        <form action="/cart/add" method="POST" class="flex-1">
+
+                    <div class="flex gap-2 mt-4 mt-auto">
+                        <form onsubmit="addToCart(event, this)" class="flex-1">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $item['id'] }}">
+                            <input type="hidden" name="name" value="{{ $item['name'] }}">
+                            <input type="hidden" name="price" value="{{ $item['price'] }}">
+                            <input type="hidden" name="image" value="{{ $item['image'] }}">
+                            
                             <button type="submit" class="w-full border border-black rounded-full py-2 text-[10px] font-bold hover:bg-black hover:text-white transition-all cursor-pointer">
                                 Add to cart
                             </button>
