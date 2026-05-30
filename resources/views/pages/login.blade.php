@@ -81,7 +81,7 @@
         <p style="margin-top: 10px; margin-left: 20px;">Don't have an account? <a href="{{ route('register') }}" class="text-blue-600 font-semibold hover:text-blue-800 hover:underline">Register here</a></p>
 
         </div> <div class="flex justify-center items-center h-full">
-            <img src="{{ asset('assets/login.jpg') }}" alt="Profile" class="w-full object-contain rounded-3xl shadow-md">
+            <img src="{{ asset('assets/login.jpg') }}" alt="Profile" class="w-full h-full object-cover">
         </div>
 </body>
 </html>
