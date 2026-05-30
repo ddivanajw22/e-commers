@@ -13,6 +13,22 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\HomeProductController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OrderController;
+
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login.perform');
+    
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');
+    Route::post('/register', [RegisterController::class, 'register'])->name('register.perform');
+});
+
+// Auth Routes (Hanya bisa diakses jika sudah login)
+Route::middleware('auth')->group(function () {
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
 
 
 Route::get('/', [HomeProductController::class, 'index'])->name('home');
@@ -32,22 +48,22 @@ Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.in
 Route::post('/cart/add', [ShopController::class, 'add'])->name('cart.add');
 
 
-Route::middleware('guest')->group(function () {
-    Route::get('/login', [LoginController::class, 'index'])->name('login');
-    Route::post('/login', [LoginController::class, 'login'])->name('login.perform');
-    Route::get('/register', [RegisterController::class, 'index'])->name('register');
-    Route::post('/register', [RegisterController::class, 'register'])->name('register.perform');
-}); 
+// Route::middleware('guest')->group(function () {
+//     Route::get('/login', [LoginController::class, 'index'])->name('login');
+//     Route::post('/login', [LoginController::class, 'login'])->name('login.perform');
+//     Route::get('/register', [RegisterController::class, 'index'])->name('register');
+//     Route::post('/register', [RegisterController::class, 'register'])->name('register.perform');
+// }); 
 
-Route::middleware('auth')->group(function () {
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
+// Route::middleware('auth')->group(function () {
+//     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+//     Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
     
     
-    Route::view('/profile', 'pages.order')->name('profile');
-    Route::get('/order', function () { return view('pages.order'); })->name('order.index');
+//     Route::view('/profile', 'pages.order')->name('profile');
+//     Route::get('/order', function () { return view('pages.order'); })->name('order.index');
     
-});
+// });
 
 // <<<<<<< HEAD
 // //     // Transaksi
