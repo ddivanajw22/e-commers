@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::view('/profile', 'pages.order')->name('profile');
     Route::get('/order', function () { return view('pages.order'); })->name('order.index');
     
-    });
+});
 
 // <<<<<<< HEAD
 // //     // Transaksi
