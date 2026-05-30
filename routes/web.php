@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
     Route::view('/profile', 'pages.order')->name('profile');
     Route::get('/order', function () { return view('pages.order'); })->name('order.index');
     
+    });
+
 // <<<<<<< HEAD
 // //     // Transaksi
 // //     // Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
