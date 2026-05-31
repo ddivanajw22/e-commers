@@ -30,11 +30,7 @@
                 @endforeach
             </ul>
 
-            <ul class="mt-10 text-[13px] space-y-4 text-gray-500 border-t pt-8">
-                <li><a href="/new-arrival" class="hover:text-black block transition-colors {{ request()->is('new-arrival') ? 'font-bold text-black' : '' }}">New Arrival</a></li>
-                <li><a href="/best-seller" class="hover:text-black block transition-colors {{ request()->is('best-seller') ? 'font-bold text-black' : '' }}">Best Seller</a></li>
-                <li><a href="/on-discount" class="hover:text-black block transition-colors {{ request()->is('on-discount') ? 'font-bold text-black' : '' }}">On Discount</a></li>
-            </ul>
+            
         </aside>
 
         <main class="flex-1">

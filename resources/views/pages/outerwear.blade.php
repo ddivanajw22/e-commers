@@ -16,11 +16,7 @@
             @endforeach
         </ul>
         <hr class="my-6 border-gray-200">
-        <ul class="text-[14px] space-y-4 text-gray-500">
-            <li class="hover:text-black cursor-pointer transition-colors">New Arrival</li>
-            <li class="hover:text-black cursor-pointer transition-colors">Best Seller</li>
-            <li class="hover:text-black cursor-pointer transition-colors">On Discount</li>
-        </ul>
+        
     </aside>
 
     <main class="flex-1">
