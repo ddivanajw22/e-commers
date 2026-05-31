@@ -28,9 +28,7 @@ Route::get('/bottom', [BottomController::class, 'index'])->name('shop.bottom');
 Route::get('/dresses', [DressesController::class, 'index'])->name('shop.dresses');
 Route::get('/outerwear', [OuterwearController::class, 'index'])->name('shop.outerwear');
 Route::get('/activewear', [ActivewearController::class, 'index'])->name('shop.activewear');
-Route::get('/new-arrival', [HomeProductController::class, 'newArrival'])->name('shop.new-arrival');
-Route::get('/best-seller', [HomeProductController::class, 'bestSeller'])->name('shop.best-seller');
-Route::get('/on-discount', [HomeProductController::class, 'onDiscount'])->name('shop.on-discount');
+
 Route::get('/category/{category}', [HomeProductController::class, 'category'])->name('shop.category');
 Route::get('/product/{id}', function ($id) { return view('pages.detail', ['productId' => $id]); })->name('product.detail');
 

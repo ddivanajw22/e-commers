@@ -27,11 +27,7 @@
                 @endforeach
             </ul>
 
-            <ul class="mt-10 text-[13px] space-y-4 text-gray-500 border-t pt-8">
-                <li class="hover:text-black cursor-pointer transition-colors">New Arrival</li>
-                <li class="hover:text-black cursor-pointer transition-colors">Best Seller</li>
-                <li class="hover:text-black cursor-pointer transition-colors">On Discount</li>
-            </ul>
+           
         </aside>
 
         <main class="flex-1">
