@@ -62,7 +62,7 @@
                 slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
                 currentSlide = (currentSlide + 1) % slides.length;
                 slides[currentSlide].classList.replace('opacity-0', 'opacity-100');
-            }, 3000);
+            }, 1000);
         }
     });
 </script>
