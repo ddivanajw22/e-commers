@@ -69,8 +69,7 @@
                 
                 <h4 class="text-[13px] font-bold">{{ $item['name'] }}</h4>
                 <div class="flex justify-between items-center mt-1">
-    <span class="text-[10px] text-gray-400 italic">★ {{ $item['rating'] }}</span>
-    <span class="font-bold text-xs">{{ $item['price'] }}</span>
+                <span class="font-bold text-xs">{{ $item['price'] }}</span>
 </div>
 
                 <div class="flex gap-2 mt-4">
