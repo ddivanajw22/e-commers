@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 { 
-    public function index() {
+    public function index(Request $request) // Tambahkan Request $request
+    {
         $tops = [
             ['id' => 1, 'name' => 'Asymmetrical Collar Crop Sweatshirt', 'price' => '$40.00', 'image' => 'https://i.pinimg.com/1200x/0d/f3/07/0df307f04ca36d28eb7dd4eb4ebfcadb.jpg', 'rating' => '5.0 (1.3k Reviews)'],
             ['id' => 2, 'name' => 'Dark Brown Faux Leather Wrap Shirt', 'price' => '$59.00', 'image' => 'https://i.pinimg.com/1200x/94/3d/68/943d6825adef9ef9015628287212ec06.jpg', 'rating' => '4.8 (850 Reviews)'],
@@ -24,6 +25,16 @@ class ShopController extends Controller
             ['id' => 14, 'name' => 'Black Faux Leather Chain Strap Top', 'price' => '$52.00', 'image' => 'https://i.pinimg.com/736x/8a/b1/53/8ab153f0e28ca15185e6045b487aecdd.jpg', 'rating' => '4.8 (1.2k Reviews)'],
             ['id' => 15, 'name' => 'Light Blue Modern Cheongsam Crop Top', 'price' => '$59.90', 'image' => 'https://i.pinimg.com/1200x/88/06/77/8806774370cd1181ab6f62ea17676571.jpg', 'rating' => '4.7 (310 Reviews)'],
         ];
+
+        // LOGIKA PENCARIAN
+        $search = $request->query('search');
+
+        if ($search) {
+            $tops = collect($tops)->filter(function ($item) use ($search) {
+                return false !== stripos($item['name'], $search);
+            });
+        }
+
         return view('pages.shop', compact('tops'));
     }
 

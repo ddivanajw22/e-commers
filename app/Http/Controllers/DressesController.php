@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // Pastikan ini ada
 
 class DressesController extends Controller
 {   
-    public function index()
+    public function index(Request $request) // Tambahkan Request $request di sini
     {
         $dresses = [
             [
@@ -100,6 +100,15 @@ class DressesController extends Controller
                 'rating' => '4.8 (110 Reviews)'
             ],
         ];
+
+        // LOGIKA PENCARIAN
+        $search = $request->query('search');
+
+        if ($search) {
+            $dresses = collect($dresses)->filter(function ($item) use ($search) {
+                return false !== stripos($item['name'], $search);
+            });
+        }
 
         return view('pages.dresses', compact('dresses'));
     }   

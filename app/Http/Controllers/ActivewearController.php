@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // Pastikan use statement ini ada
 
 class ActivewearController extends Controller
 {   
-    public function index () {
+    public function index(Request $request) // Tambahkan parameter Request $request
+    {
         $activewear = [
             [
                 'name' => 'Ribbed Seamless Two-Piece Crop Top & Shorts Set',
@@ -26,7 +27,6 @@ class ActivewearController extends Controller
                 'image' => 'https://i.pinimg.com/736x/db/95/00/db95006b010e37036802e8d92877a7f9.jpg',
                 'rating' => '4.7 (98 Reviews)'
             ],
-            // Baris 2
             [
                 'name' => 'Aesthetic Racerback Mock-Neck Running Romper',
                 'price' => '$79.90', 
@@ -45,7 +45,6 @@ class ActivewearController extends Controller
                 'image' => 'https://i.pinimg.com/1200x/64/db/3b/64db3be1b66b60121046c04174b14e5a.jpg',
                 'rating' => '4.6 (180 Reviews)'
             ],
-            // Baris 3
             [
                 'name' => 'Sporty V-Neck Tank Top & Pleated Tennis Skirt Set',
                 'price' => '$78.00', 
@@ -64,7 +63,6 @@ class ActivewearController extends Controller
                 'image' => 'https://i.pinimg.com/736x/11/a6/79/11a679a75d2212c75553f923688e8371.jpg',
                 'rating' => '4.9 (192 Reviews)'
             ],
-            // Baris 4
             [
                 'name' => 'Premium Slim-Fit Zip Jacket & Flared Leggings Set',
                 'price' => '$72.00', 
@@ -83,7 +81,6 @@ class ActivewearController extends Controller
                 'image' => 'https://i.pinimg.com/736x/32/62/7d/32627da469f9fe22bb6869cd5e5dd187.jpg',
                 'rating' => '4.7 (204 Reviews)'
             ],
-            // Baris 5
             [
                 'name' => 'Casual Varsity Los Angeles 79 Sweatshirt & Joggers Set',
                 'price' => '$76.90', 
@@ -103,6 +100,16 @@ class ActivewearController extends Controller
                 'rating' => '4.9 (412 Reviews)'
             ],
         ];
+
+        // LOGIKA PENCARIAN
+        $search = $request->query('search');
+
+        if ($search) {
+            $activewear = collect($activewear)->filter(function ($item) use ($search) {
+                return false !== stripos($item['name'], $search);
+            });
+        }
+
         return view('pages.activewear', compact('activewear'));
     }   
 }

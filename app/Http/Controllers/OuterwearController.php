@@ -2,110 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class OuterwearController extends Controller
 {
     private $outerwear = [
-        [
-            'name' => 'Aesthetic Sage Green Zippered Sports Jacket',
-            'price' => '$45.00',
-            'image' => 'https://i.pinimg.com/736x/28/98/0e/28980eab28e66fb0239b578c3868eb99.jpg',
-            'rating' => '4.8 (115 Reviews)'
-        ],
-        [
-            'name' => 'Minimalist Cream White Athletic Quarter-Zip Pullover',
-            'price' => '$48.00',
-            'image' => 'https://i.pinimg.com/1200x/09/a9/ce/09a9ceafe37b9253a4e0dbce0fe8a907.jpg',
-            'rating' => '4.9 (210 Reviews)'
-        ],
-        [
-            'name' => 'Classic Off-White Workout Zip-Up Hoodie',
-            'price' => '$42.50',
-            'image' => 'https://i.pinimg.com/736x/db/95/00/db95006b010e37036802e8d92877a7f9.jpg',
-            'rating' => '4.7 (98 Reviews)'
-        ],
-        [
-            'name' => 'Cozy Charcoal Gray Oversized Sporty Sweatshirt',
-            'price' => '$39.90',
-            'image' => 'https://i.pinimg.com/736x/ef/51/54/ef5154b721f2340b5710516b5961d28b.jpg',
-            'rating' => '4.8 (320 Reviews)'
-        ],
-        [
-            'name' => 'Premium Oatmeal Beige Knit Training Crewneck',
-            'price' => '$44.00',
-            'image' => 'https://i.pinimg.com/1200x/bb/4b/cd/bb4bcde322a50a169b79d2df56c72fd9.jpg',
-            'rating' => '4.9 (145 Reviews)'
-        ],
-        [
-            'name' => 'Sporty Jet Black Lightweight Running Jacket',
-            'price' => '$49.90',
-            'image' => 'https://i.pinimg.com/1200x/64/db/3b/64db3be1b66b60121046c04174b14e5a.jpg',
-            'rating' => '4.6 (180 Reviews)'
-        ],
-        [
-            'name' => 'Elegant Dusty Pink Cropped Activewear Jacket',
-            'price' => '$38.00',
-            'image' => 'https://i.pinimg.com/736x/6b/ea/6e/6bea6eeee7d43457f652be711c770064.jpg',
-            'rating' => '4.8 (240 Reviews)'
-        ],
-        [
-            'name' => 'Chic Light Gray Cropped Gym Hoodie',
-            'price' => '$35.00',
-            'image' => 'https://i.pinimg.com/1200x/68/56/2e/68562e646b88c3aaa2f6d812972d3686.jpg',
-            'rating' => '4.7 (155 Reviews)'
-        ],
-        [
-            'name' => 'Urban Slate Gray Fitted Workout Zip-Up',
-            'price' => '$46.00',
-            'image' => 'https://i.pinimg.com/736x/11/a6/79/11a679a75d2212c75553f923688e8371.jpg',
-            'rating' => '4.9 (192 Reviews)'
-        ],
-        [
-            'name' => 'Trendy Soft Blue Collared Athletic Windbreaker',
-            'price' => '$52.00',
-            'image' => 'https://i.pinimg.com/736x/a5/ac/27/a5ac27c729f9b7b32e2cef27fa905c24.jpg',
-            'rating' => '5.0 (88 Reviews)'
-        ],
-        [
-            'name' => 'Streetwear Vintage Olive Green Sporty Track Jacket',
-            'price' => '$55.00',
-            'image' => 'https://i.pinimg.com/1200x/36/bd/26/36bd26379fa7ee2b4094d34abc2c2212.jpg',
-            'rating' => '4.8 (137 Reviews)'
-        ],
-        [
-            'name' => 'Casual Ash Gray Fleece Training Hoodie',
-            'price' => '$41.00',
-            'image' => 'https://i.pinimg.com/736x/32/62/7d/32627da469f9fe22bb6869cd5e5dd187.jpg',
-            'rating' => '4.7 (204 Reviews)'
-        ],
-        [
-            'name' => 'Retro Navy Blue Varsity Active Pullover',
-            'price' => '$43.90',
-            'image' => 'https://i.pinimg.com/736x/e9/10/2c/e9102c1407e9d523b9cd8b4ddc3c2950.jpg',
-            'rating' => '4.9 (165 Reviews)'
-        ],
-        [
-            'name' => 'Comfortable Tan Beige Oversized Gym Sweatshirt',
-            'price' => '$39.00',
-            'image' => 'https://i.pinimg.com/736x/22/21/b0/2221b0cb32916e575bd4a0b07e4e2322.jpg',
-            'rating' => '4.8 (290 Reviews)'
-        ],
-        [
-            'name' => 'Sleek All-Black Performance Gym Jacket',
-            'price' => '$47.50',
-            'image' => 'https://i.pinimg.com/736x/17/96/42/1796429189113214458b6204a201e4fa.jpg',
-            'rating' => '4.9 (412 Reviews)'
-        ],
+        ['name' => 'Chocolate Brown Faux-Leather Biker Jacket', 'price' => '$75.00', 'image' => 'https://i.pinimg.com/1200x/ee/ea/94/eeea943b8f162fc123a4dd63a250d4f6.jpg', 'rating' => '4.8 (210 Reviews)'],
+        ['name' => 'Burgundy Faux-Leather Belted Cropped Jacket', 'price' => '$72.00', 'image' => 'https://i.pinimg.com/1200x/39/fb/18/39fb18fe4a89377411968dbc3e3b3f5f.jpg', 'rating' => '4.9 (185 Reviews)'],
+        ['name' => 'Jet Black Faux-Leather Bomber Jacket', 'price' => '$78.00', 'image' => 'https://i.pinimg.com/736x/57/5c/8c/575c8c00f590ce6cf7107fb795c17d80.jpg', 'rating' => '4.7 (340 Reviews)'],
+        ['name' => 'Charcoal Gray Oversized Wide-Collar Long Cardigan', 'price' => '$65.00', 'image' => 'https://i.pinimg.com/1200x/66/cb/46/66cb462f58325f56117cd177d6635bd4.jpg', 'rating' => '4.6 (190 Reviews)'],
+        ['name' => 'Classic Khaki Double-Breasted Long Trench Coat', 'price' => '$79.90', 'image' => 'https://i.pinimg.com/1200x/ee/49/ef/ee49ef3fb8fc9655502c074a996a4fc3.jpg', 'rating' => '4.9 (420 Reviews)'],
+        ['name' => 'Tan Brown Sherpa-Lined Double-Breasted Long Coat', 'price' => '$64.00', 'image' => 'https://i.pinimg.com/1200x/f2/ae/b4/f2aeb480f26e34ca412f8b8d8031f8e2.jpg', 'rating' => '4.8 (150 Reviews)'],
+        ['name' => 'Classic Blue Cable-Knit Buttoned Cardigan', 'price' => '$58.50', 'image' => 'https://i.pinimg.com/736x/83/97/2e/83972e546b66d30050987c80c86842bd.jpg', 'rating' => '4.7 (510 Reviews)'],
+        ['name' => 'Boho Tribal Geometric Pattern Open Cardigan', 'price' => '$42.00', 'image' => 'https://i.pinimg.com/736x/fa/51/54/fa5154303378da12934a28c27ade3bf4.jpg', 'rating' => '4.8 (280 Reviews)'],
+        ['name' => 'Elegant Dusty Pink Tweed Pattern Buttoned Cardigan', 'price' => '$52.00', 'image' => 'https://i.pinimg.com/1200x/e0/3b/aa/e03baac2a3719337d9fd5fcd8a20746e.jpg', 'rating' => '4.9 (670 Reviews)'],
+        ['name' => 'Ultra-Cropped Red Long-Sleeve Hooded Shrug', 'price' => '$56.00', 'image' => 'https://i.pinimg.com/1200x/43/46/60/43466055835200abf254dcd24727948f.jpg', 'rating' => '4.7 (130 Reviews)'],
+        ['name' => 'Aesthetic Pastel Marble Tie-Dye Cropped Hoodie', 'price' => '$69.90', 'image' => 'https://i.pinimg.com/1200x/bf/66/ce/bf66cee93c53210c562160d38c4516a6.jpg', 'rating' => '4.8 (220 Reviews)'],
+        ['name' => 'Pastel Lime Green Cropped Tie-Back Hoodie', 'price' => '$69.00', 'image' => 'https://i.pinimg.com/1200x/a7/1f/b9/a71fb9b5de9f4c8611875c4207edf19d.jpg', 'rating' => '4.8 (480 Reviews)'],
+        ['name' => 'Vibrant Pink Cropped Denim Jacket', 'price' => '$58.00', 'image' => 'https://i.pinimg.com/736x/de/55/b5/de55b58bd98b84767a8bdc8208a232a6.jpg', 'rating' => '4.6 (110 Reviews)'],
+        ['name' => 'Classic Light Wash Cropped Denim Jacket', 'price' => '$75.00', 'image' => 'https://i.pinimg.com/736x/76/16/6f/76166fa18ff8f47a0e95fab2c7637184.jpg', 'rating' => '4.9 (165 Reviews)'],
+        ['name' => 'Pastel Color-Block Cropped Denim Jacket', 'price' => '$68.00', 'image' => 'https://i.pinimg.com/1200x/1b/8f/0c/1b8f0c167ab8ed66329a1bd76b357357.jpg', 'rating' => '5.0 (95 Reviews)'],
     ];
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.outerwear', [
-            'outerwear' => $this->outerwear
-        ]);
-    }
+        $data = $this->outerwear;
+        $search = $request->query('search');
 
-    public function indexData()
-    {
-        return $this->outerwear;
+        if ($search) {
+            $data = array_filter($data, function ($item) use ($search) {
+                return false !== stripos($item['name'], $search);
+            });
+        }
+
+        return view('pages.outerwear', ['outerwear' => $data]);
     }
 }
