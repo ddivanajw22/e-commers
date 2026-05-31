@@ -51,32 +51,43 @@
             </div>
 
             <div class="grid grid-cols-3 gap-x-12 gap-y-16">
-                @forelse($activewear as $item)
-                <div class="flex flex-col">
-                    <div class="relative bg-[#EAEAEA] aspect-[4/5] rounded-[30px] mb-4 overflow-hidden shadow-sm">
-                        <img src="{{ $item['image'] ?? 'https://via.placeholder.com/300x400' }}" class="w-full h-full object-cover rounded-[30px]">
-                        <button class="absolute top-5 right-5 text-gray-800 outline-none">
-                            
-                        </button>
-                    </div>
-                    
-                    <h4 class="text-[13px] font-bold">{{ $item['name'] ?? 'Activewear Product' }}</h4>
-                    
-                    <div class="flex justify-between items-center mt-1">
-                        <span class="font-bold text-xs">{{ $item['price'] ?? '$0.00' }}</span>
-                    </div>
-                    
-                    <div class="flex gap-2 mt-4">
-                        <button class="flex-1 border border-black rounded-full py-2 text-[10px] font-bold hover:bg-black hover:text-white transition-all">Add to cart</button>
-                        <button class="flex-1 bg-black text-white rounded-full py-2 text-[10px] font-bold hover:bg-gray-800 transition-all">Buy now</button>
-                    </div>
-                </div>
-                @empty
-                    <div class="col-span-3 text-center py-10">
-                        <p class="text-gray-500">Produk tidak ditemukan.</p>
-                        <a href="{{ url('/activewear') }}" class="text-black underline mt-2 block">Reset Pencarian</a>
-                    </div>
-                @endforelse
+    @forelse($activewear as $item)
+    <div class="flex flex-col">
+        <div class="relative bg-[#EAEAEA] aspect-[4/5] rounded-[30px] mb-4 overflow-hidden shadow-sm">
+            <img src="{{ $item['image'] ?? 'https://via.placeholder.com/300x400' }}" class="w-full h-full object-cover rounded-[30px]">
+        </div>
+        
+        <h4 class="text-[13px] font-bold">{{ $item['name'] ?? 'Activewear Product' }}</h4>
+        
+        <div class="flex justify-between items-center mt-1">
+            <span class="font-bold text-xs">{{ $item['price'] ?? '$0.00' }}</span>
+        </div>
+        
+        <div class="flex gap-2 mt-4">
+            <form onsubmit="addToCart(event, this)" class="flex-1">
+                @csrf
+                <input type="hidden" name="product_id" value="{{ $item['id'] ?? 0 }}">
+                <input type="hidden" name="name" value="{{ $item['name'] }}">
+                <input type="hidden" name="price" value="{{ $item['price'] }}">
+                <input type="hidden" name="image" value="{{ $item['image'] }}">
+                
+                <button type="submit" class="w-full border border-black rounded-full py-2 text-[10px] font-bold hover:bg-black hover:text-white transition-all">
+                    Add to cart
+                </button>
+            </form>
+            
+            <button class="flex-1 bg-black text-white rounded-full py-2 text-[10px] font-bold hover:bg-gray-800 transition-all">
+                Buy now
+            </button>
+        </div>
+    </div>
+    @empty
+        <div class="col-span-3 text-center py-10">
+            <p class="text-gray-500">Produk tidak ditemukan.</p>
+            <a href="{{ url('/activewear') }}" class="text-black underline mt-2 block">Reset Pencarian</a>
+        </div>
+    @endforelse
+</div>
             </div>
         </main>
     </div>

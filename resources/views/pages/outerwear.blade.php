@@ -35,16 +35,31 @@
 
         <div class="grid grid-cols-3 gap-x-12 gap-y-16">
             @forelse($outerwear as $item)
-            <div class="flex flex-col">
+            <div class="flex flex-col w-full">
                 <div class="relative bg-[#EAEAEA] aspect-[4/5] rounded-[30px] mb-4 overflow-hidden shadow-sm">
                     <img src="{{ $item['image'] }}" class="w-full h-full object-cover">
-                    <!-- Ikon hati sudah dihapus di sini -->
                 </div>
-                <h4 class="text-[13px] font-bold">{{ $item['name'] }}</h4>
-                <div class="flex justify-between items-center mt-1"><span class="font-bold text-xs">{{ $item['price'] }}</span></div>
+                
+                <h4 class="text-[13px] font-bold mt-1">{{ $item['name'] }}</h4>
+                <div class="flex justify-between items-center mt-1">
+                    <span class="font-bold text-xs">{{ $item['price'] }}</span>
+                </div>
+                
                 <div class="flex gap-2 mt-4">
-                    <button class="flex-1 border border-black rounded-full py-2 text-[10px] font-bold hover:bg-black hover:text-white transition-all">Add to cart</button>
-                    <button class="flex-1 bg-black text-white rounded-full py-2 text-[10px] font-bold hover:bg-gray-800 transition-all">Buy now</button>
+                    <form onsubmit="addToCart(event, this)" class="w-full">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $item['id'] }}">
+                        <input type="hidden" name="name" value="{{ $item['name'] }}">
+                        <input type="hidden" name="price" value="{{ $item['price'] }}">
+                        <input type="hidden" name="image" value="{{ $item['image'] }}">
+                        <button type="submit" class="w-full border border-black rounded-full py-2 text-[10px] font-bold hover:bg-black hover:text-white transition-all">
+                            Add to cart
+                        </button>
+                    </form>
+                    
+                    <button class="w-full bg-black text-white rounded-full py-2 text-[10px] font-bold hover:bg-gray-800 transition-all">
+                        Buy now
+                    </button>
                 </div>
             </div>
             @empty
