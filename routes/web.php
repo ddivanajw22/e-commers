@@ -35,7 +35,7 @@ Route::get('/product/{id}', function ($id) { return view('pages.detail', ['produ
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
+    Route::get('/dashboard', function () { return view('pages.order'); })->name('dashboard');
     Route::get('/profile', function () { return view('pages.order'); })->name('profile');
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
