@@ -46,6 +46,24 @@
                             <span class="text-xs font-black text-black">{{ $product['price'] }}</span>
                         </div>
                     </div>
+
+                    <br>
+                    
+                    <div class="flex gap-2 mt-4 mt-auto">
+                        <form onsubmit="addToCart(event, this)" class="flex-1">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product['id'] }}">
+                            <input type="hidden" name="name" value="{{ $product['name'] }}">
+                            <input type="hidden" name="price" value="{{ $product['price'] }}">
+                            <input type="hidden" name="image" value="{{ $product['image'] }}">
+                            <button type="submit" class="w-full border border-black rounded-full py-2 text-[10px] font-bold hover:bg-black hover:text-white transition-all cursor-pointer">
+                                Add to cart
+                            </button>
+                        </form>
+                        <button class="flex-1 bg-black text-white rounded-full py-2 text-[10px] font-bold hover:bg-gray-800 transition-all">
+                            Buy now
+                        </button>
+                    </div>
                 </div>
             @endforeach
         </div>

@@ -64,6 +64,8 @@
                         </div>
                     </div>
 
+                    <br>
+
                     <div class="flex gap-2 mt-4 mt-auto">
                         <form onsubmit="addToCart(event, this)" class="flex-1">
                             @csrf

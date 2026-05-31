@@ -25,7 +25,7 @@
         <h2 class="text-sm font-bold text-black mb-4">Your Orders</h2>
             
         <div class="flex gap-2">
-            <button class="border border-gray-300 px-5 py-1.5 rounded-full text-xs font-normal text-black hover:bg-gray-50">Current</button>
+            <button class="border border-gray-300 px-5 py-1.5 rounded-full text-xs font-normal text-black hover:bg-gray-50"><a href="{{ route('order.index') }}">Current</a></button>
             <button class="border border-gray-300 px-5 py-1.5 rounded-full text-xs font-normal text-black hover:bg-gray-50">Unpaid</button>
             <button class="bg-black text-white px-5 py-1.5 rounded-full text-xs font-semibold">Done</button>
             <button class="border border-gray-300 px-5 py-1.5 rounded-full text-xs font-normal text-black hover:bg-gray-50">Canceled</button>

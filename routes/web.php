@@ -13,6 +13,7 @@ use App\Http\Controllers\ActivewearController;
 use App\Http\Controllers\HomeProductController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Order2Controller;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -37,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/dashboard', function () { return view('pages.order'); })->name('dashboard');
     Route::get('/profile', function () { return view('pages.order'); })->name('profile');
+    Route::get('/order2', [Order2Controller::class, 'done'])->name('order.done');
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/add', [ShopController::class, 'add'])->name('cart.add');
