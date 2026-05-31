@@ -32,40 +32,39 @@
             </div>
         @else
             <form action="{{ route('checkout.page') }}" method="GET">
-    @csrf
-    <div class="border border-gray-200 rounded-[25px] overflow-hidden">
-        <table class="w-full text-left border-collapse">
-            <tbody id="cart-items">
-                @foreach(session('cart', []) as $index => $item)
-                    <tr id="row-{{ $index }}" class="border-b border-gray-100 last:border-b-0">
-                        <td class="p-6">
-                            <input type="checkbox" name="selected_items[]" value="{{ $index }}" checked class="w-5 h-5 accent-black cursor-pointer">
-                        </td>
-                        <td class="p-6 flex items-center gap-4">
-                            <img src="{{ $item['image'] }}" class="w-16 h-16 object-cover rounded-lg">
-                            <div>
-                                <h4 class="font-bold">{{ $item['name'] }}</h4>
-                                <p class="text-sm text-gray-500">{{ $item['price'] }}</p>
-                            </div>
-                        </td>
-                        <td class="p-6 font-bold">{{ $item['price'] }}</td>
-                        <td class="p-6">
-                            <button type="button" onclick="hapusItem({{ $index }})" class="text-red-500 font-bold hover:underline transition-all hover:text-red-700">
-                                Hapus
-                            </button>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-    
-    <div class="mt-8 flex justify-end">
-        <button type="submit" class="bg-black text-white px-12 py-4 rounded-full font-bold hover:bg-gray-800 transition shadow-lg">
-            Checkout
-        </button>
-    </div>
-</form>
+                <div class="border border-gray-200 rounded-[25px] overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <tbody id="cart-items">
+                            @foreach(session('cart', []) as $index => $item)
+                                <tr id="row-{{ $index }}" class="border-b border-gray-100 last:border-b-0">
+                                    <td class="p-6">
+                                        <input type="checkbox" name="selected_items[]" value="{{ $index }}" checked class="w-5 h-5 accent-black cursor-pointer">
+                                    </td>
+                                    <td class="p-6 flex items-center gap-4">
+                                        <img src="{{ $item['image'] }}" class="w-16 h-16 object-cover rounded-lg">
+                                        <div>
+                                            <h4 class="font-bold">{{ $item['name'] }}</h4>
+                                            <p class="text-sm text-gray-500">{{ $item['price'] }}</p>
+                                        </div>
+                                    </td>
+                                    <td class="p-6 font-bold">{{ $item['price'] }}</td>
+                                    <td class="p-6">
+                                        <button type="button" onclick="hapusItem({{ $index }})" class="text-red-500 font-bold hover:underline transition-all hover:text-red-700">
+                                            Hapus
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-8 flex justify-end">
+                    <button type="submit" class="bg-black text-white px-12 py-4 rounded-full font-bold hover:bg-gray-800 transition shadow-lg">
+                        Checkout
+                    </button>
+                </div>
+            </form>
         @endif
     </div>
 
@@ -77,8 +76,6 @@
     <script>
         function hapusItem(index) {
             if (!confirm('Hapus item ini dari keranjang?')) return;
-
-            // Mengirim request ke rute /cart/remove/{index}
             fetch(`/cart/remove/${index}`, {
                 method: 'POST',
                 headers: {
@@ -90,21 +87,12 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // Hapus elemen dari tabel tanpa reload
                     const row = document.getElementById(`row-${index}`);
                     if (row) row.remove();
-                    
-                    // Jika keranjang kosong, reload untuk memicu tampilan "Kosong"
-                    if (document.querySelectorAll('#cart-items tr').length === 0) {
-                        location.reload();
-                    }
+                    if (document.querySelectorAll('#cart-items tr').length === 0) location.reload();
                 } else {
                     alert('Gagal menghapus item.');
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Terjadi kesalahan koneksi.');
             });
         }
     </script>
