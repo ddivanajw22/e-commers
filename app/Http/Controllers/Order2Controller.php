@@ -16,4 +16,6 @@ class Order2Controller extends Controller
         {
             return view('pages.order');
         }
+
+
 }

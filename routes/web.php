@@ -48,3 +48,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/seller/dashboard', [SellerController::class, 'dashboard'])->name('seller.dashboard');
     Route::post('/seller/order/{id}/konfirmasi', [SellerController::class, 'konfirmasiOrder'])->name('seller.konfirmasi');
 });
+

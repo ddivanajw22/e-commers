@@ -61,9 +61,15 @@
                 </div>
                 
                 <div class="mt-8 flex justify-end">
-                    <button type="submit" class="bg-black text-white px-12 py-4 rounded-full font-bold hover:bg-gray-800 transition shadow-lg">
+                    <form action="{{ route('checkout.process') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="bg-black text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition">
+                            Checkout
+                        </button>
+                    </form>
+                    <!-- <button type="submit" class="bg-black text-white px-12 py-4 rounded-full font-bold hover:bg-gray-800 transition shadow-lg">
                         Checkout
-                    </button>
+                    </button> -->
                 </div>
             </form>
         @endif
