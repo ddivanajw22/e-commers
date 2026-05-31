@@ -12,44 +12,17 @@ use App\Http\Controllers\ActivewearController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\HomeProductController;
 use App\Http\Controllers\SellerController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OrderController;
-
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('login.perform');
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-// Proteksi Halaman Order/Profile (Hanya bisa diakses jika email & password COCOK)
-    Route::middleware('auth')->group(function () {
-        Route::get('/order', [OrderController::class, 'index'])->name('order.index');
-    });
-    
-    
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::post('/register', [RegisterController::class, 'register'])->name('register.perform');
 });
 
-// Auth Routes (Hanya bisa diakses jika sudah login)
-Route::middleware('auth')->group(function () {
-    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-});
-
-Route::middleware('auth')->group(function () {
-    // Route ini memanggil OrderController
-    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
-    
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-});
-
-
 Route::get('/', [HomeProductController::class, 'index'])->name('home');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
-<<<<<<< HEAD
-Route::get('/shop/{category}', [ShopController::class, 'categoryFilter'])->name('shop.category');
-=======
 Route::get('/bottom', [BottomController::class, 'index'])->name('shop.bottom');
 Route::get('/dresses', [DressesController::class, 'index'])->name('shop.dresses');
 Route::get('/outerwear', [OuterwearController::class, 'index'])->name('shop.outerwear');
@@ -58,64 +31,19 @@ Route::get('/new-arrival', [HomeProductController::class, 'newArrival'])->name('
 Route::get('/best-seller', [HomeProductController::class, 'bestSeller'])->name('shop.best-seller');
 Route::get('/on-discount', [HomeProductController::class, 'onDiscount'])->name('shop.on-discount');
 Route::get('/category/{category}', [HomeProductController::class, 'category'])->name('shop.category');
->>>>>>> 27261c8bf7575133fec30c399e9f491a25daf8b4
 Route::get('/product/{id}', function ($id) { return view('pages.detail', ['productId' => $id]); })->name('product.detail');
 
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::post('/cart/add', [ShopController::class, 'add'])->name('cart.add');
-
-Route::post('/cart/remove/{index}', [CartController::class, 'remove'])->name('cart.remove');
-
-Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
-
-
-// Route::middleware('guest')->group(function () {
-//     Route::get('/login', [LoginController::class, 'index'])->name('login');
-//     Route::post('/login', [LoginController::class, 'login'])->name('login.perform');
-//     Route::get('/register', [RegisterController::class, 'index'])->name('register');
-//     Route::post('/register', [RegisterController::class, 'register'])->name('register.perform');
-// }); 
-
-// Route::middleware('auth')->group(function () {
-//     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-//     Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
-    
-    
-//     Route::view('/profile', 'pages.order')->name('profile');
-//     Route::get('/order', function () { return view('pages.order'); })->name('order.index');
-    
-// });
-
-<<<<<<< HEAD
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
-    
     Route::get('/profile', function () { return view('pages.order'); })->name('profile');
-    Route::get('/order', function () { return view('pages.order'); })->name('order.index');
-    
-    
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add', [ShopController::class, 'add'])->name('cart.add');
+    Route::post('/cart/remove/{index}', [CartController::class, 'remove'])->name('cart.remove');
     Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
     Route::post('/wishlist/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
-    
     Route::get('/seller/dashboard', [SellerController::class, 'dashboard'])->name('seller.dashboard');
     Route::post('/seller/order/{id}/konfirmasi', [SellerController::class, 'konfirmasiOrder'])->name('seller.konfirmasi');
 });
-=======
-// <<<<<<< HEAD
-// //     // Transaksi
-// //     // Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
-// //     // Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-// //     // Route::post('/wishlist/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
-    
-  
-// // =======
-// //     Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
-// //     Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-// //     Route::post('/wishlist/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
-// // >>>>>>> b3c275123daa7cb770d47b4bdc6cd9ac1799b40a
-// //     Route::get('/seller/dashboard', [SellerController::class, 'dashboard'])->name('seller.dashboard');
-// //     Route::post('/seller/order/{id}/konfirmasi', [SellerController::class, 'konfirmasiOrder'])->name('seller.konfirmasi');
-// // });
-
->>>>>>> 27261c8bf7575133fec30c399e9f491a25daf8b4
