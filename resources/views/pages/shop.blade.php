@@ -53,9 +53,7 @@
                     <div class="relative bg-[#EAEAEA] aspect-[4/5] rounded-[30px] mb-4 overflow-hidden shadow-sm">
                         <img src="{{ $item['image'] }}" class="w-full h-full object-cover rounded-[30px]">
                         <button id="btn-{{ $item['id'] }}" data-id="{{ $item['id'] }}" data-name="{{ $item['name'] }}" data-image="{{ $item['image'] }}" data-price="{{ $item['price'] }}" onclick="toggleWishlist(this)" class="absolute top-5 right-5 z-20 outline-none">
-                            <svg id="svg-{{ $item['id'] }}" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-black">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                            </svg>
+                            
                         </button>
                     </div>
                     
@@ -93,6 +91,6 @@
     </div>
 
     <script>
-        // ... fungsi toggleWishlist Anda tetap sama ...
+       
     </script>
 @endsection

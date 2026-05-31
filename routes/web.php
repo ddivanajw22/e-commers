@@ -9,7 +9,7 @@ use App\Http\Controllers\BottomController;
 use App\Http\Controllers\DressesController;
 use App\Http\Controllers\OuterwearController;
 use App\Http\Controllers\ActivewearController;
-use App\Http\Controllers\WishlistController;
+
 use App\Http\Controllers\HomeProductController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\OrderController;
@@ -42,8 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/add', [ShopController::class, 'add'])->name('cart.add');
     Route::post('/cart/remove/{index}', [CartController::class, 'remove'])->name('cart.remove');
     Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-    Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
-    Route::post('/wishlist/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
+    
     Route::get('/seller/dashboard', [SellerController::class, 'dashboard'])->name('seller.dashboard');
     Route::post('/seller/order/{id}/konfirmasi', [SellerController::class, 'konfirmasiOrder'])->name('seller.konfirmasi');
 });
