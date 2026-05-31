@@ -42,53 +42,55 @@
     </div>
 </nav>
 
+@if(session('success'))
+    <div class="px-[8%] pt-6" id="flash-msg">
+        <div class="bg-black text-white px-6 py-4 rounded-2xl flex items-center justify-between shadow-lg">
+            <span>{{ session('success') }}</span>
+            <button onclick="this.parentElement.parentElement.remove()" class="font-bold hover:text-gray-300">✕</button>
+        </div>
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="px-[8%] pt-6" id="flash-msg">
+        <div class="bg-red-600 text-white px-6 py-4 rounded-2xl flex items-center justify-between shadow-lg">
+            <span>{{ session('error') }}</span>
+            <button onclick="this.parentElement.parentElement.remove()" class="font-bold hover:text-gray-200">✕</button>
+        </div>
+    </div>
+@endif
+
 <main class="relative z-10">
     @yield('content')
 </main>
 
-<!-- Footer Baru yang lebih proporsional -->
-<!-- Footer dengan Ikon Instagram -->
 <footer class="px-[8%] pb-12 mt-20 relative z-10">
     <div class="bg-[#E2E2E2] rounded-[45px] py-16 px-16 flex flex-col md:flex-row justify-between items-start gap-12">
-        
-        <!-- Sisi Kiri: Branding -->
         <div class="flex-1">
             <div class="text-3xl font-extrabold italic font-genos mb-4">Ravenelle</div>
             <p class="text-[13px] text-gray-500 max-w-[250px]">
                 Providing high-quality fashion essentials for your daily style. Crafted with care.
             </p>
         </div>
-
-        <!-- Sisi Kanan: Get In Touch -->
         <div class="flex-1">
             <h5 class="font-bold text-lg mb-6">Get In Touch</h5>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-[13px] text-gray-700">
-                <!-- Lokasi -->
-                <div class="flex items-center gap-3">
-                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    <span>UIB, Batam</span>
-                </div>
-                <!-- Telepon -->
-                <div class="flex items-center gap-3">
-                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                    <span>1111222345</span>
-                </div>
-                <!-- Email -->
-                <div class="flex items-center gap-3">
-                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    <span>business@ravenelle.com</span>
-                </div>
-                <!-- Instagram -->
-                <a href="https://instagram.com/ravenelle" class="flex items-center gap-3 hover:text-black transition-colors">
-                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke-width="2"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" stroke-width="2"/></svg>
-                    <span>@ravenelle</span>
-                </a>
+                <div class="flex items-center gap-3"><span>UIB, Batam</span></div>
+                <div class="flex items-center gap-3"><span>1111222345</span></div>
+                <div class="flex items-center gap-3"><span>business@ravenelle.com</span></div>
+                <a href="https://instagram.com/ravenelle" class="flex items-center gap-3 hover:text-black transition-colors"><span>@ravenelle</span></a>
             </div>
         </div>
     </div>
 </footer>
 
 <script>
+    // Menghilangkan notifikasi otomatis setelah 4 detik
+    setTimeout(function() {
+        let flash = document.getElementById('flash-msg');
+        if (flash) flash.remove();
+    }, 4000);
+
     function addToCart(event, form) {
         event.preventDefault();
         let formData = new FormData(form);
