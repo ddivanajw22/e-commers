@@ -9,35 +9,31 @@ class LoginController extends Controller
 {   
     public function index() 
     {
-        return view('pages.login');
+        return view('pages.login'); // Pastikan file login.blade.php ada di folder resources/views/pages/
     }
 
     public function login(Request $request)
     {
-        // 1. Validate the request data
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        // 2. Attempt to log the user in
         if (Auth::attempt($credentials)) {
-            // Regenerate session to prevent session fixation attacks
             $request->session()->regenerate();
 
-            // 3. Role-based redirection
+            // Cek Role jika seller
             if (Auth::user()->role === 'seller') {
                 return redirect()->intended(route('seller.dashboard'));
             }
 
-            // Default redirect for other roles (e.g., normal user dashboard)
-            return redirect()->intended(route('dashboard'));
+            // Jika customer atau default, langsung arahkan ke profile/halaman order
+            return redirect()->intended(route('order.index'));
         }
 
-        // 4. If login fails, redirect back with an error message
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email'); // Keeps the email filled in for convenience
+        ])->onlyInput('email');
     }
 
     public function logout(Request $request)
