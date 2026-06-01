@@ -3,7 +3,7 @@
 @section('content')
 <div class="w-full bg-white min-h-screen pb-16 flex flex-col items-center">
 
-<div class="w-full h-[600px] relative overflow-hidden bg-white select-none">
+<div class="w-full h-[80vh] relative overflow-hidden bg-white select-none">
     <div class="relative w-full h-full">
         @foreach(range(1, 5) as $i)
         <div class="slide-item absolute inset-0 transition-opacity duration-1000 {{ $i == 1 ? 'opacity-100' : 'opacity-0' }}">
